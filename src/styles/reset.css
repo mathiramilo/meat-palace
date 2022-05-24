@@ -1,0 +1,50 @@
+ /* Reset and Adjustments */
+html {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+/* Font for placeholders  */
+*::placeholder {
+    font-family: var(mainFont);
+}
+
+/* Setting the font for the inputs */
+input {
+    font-family: var(mainFont);
+}
+
+/* Reset Input type Submit */
+input[type=submit] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+select {
+    font-family: var(mainFont);
+}
+
+/* Cursor pointer for Submit buttons and selects */
+input[type=submit]:hover,
+input[type=file]:hover,
+select:hover {
+    cursor: pointer;
+}
+
+/* Scrollbar Customization */
+*::-webkit-scrollbar {
+    width: 5px;
+    background-color: white;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #00000075;
+    border-radius: 20px;
+}

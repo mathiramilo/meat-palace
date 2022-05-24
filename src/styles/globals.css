@@ -1,0 +1,30 @@
+/* Globals */
+body {
+    margin: 0;
+    font-family: var(--mainFont);
+    background-color: var(--mainBackground);
+}
+
+* {
+    letter-spacing: 0.1px;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+button:hover {
+    cursor: pointer;
+}

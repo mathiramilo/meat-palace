@@ -5,16 +5,13 @@ import logoWhite from '../../../assets/img/logo/logo-white.png';
 import { ReactComponent as LoginIcon } from '../../../assets/icons/login.svg';
 import { ReactComponent as CartIcon } from '../../../assets/icons/cart.svg';
 import { ReactComponent as HamburguerIcon } from '../../../assets/icons/hamburguer-menu.svg';
-import { ReactComponent as CloseIcon } from '../../../assets/icons/x.svg';
 // Import css
-import './Navbar.css';
+import './styles/Navbar.css';
+// Import components
+import { HamburguerMenuCanvas } from './components/HamburguerMenuCanvas/HamburguerMenuCanvas';
 
-// Future use propr
-type props = {
-    isLandingPage: boolean;
-}
 
-export const Navbar = ({ isLandingPage }: props) => {
+export const Navbar = () => {
 
     // State that represents if the hamburguer menu is open or not.
     const [hamburguerMenuOpen, sethamburguerMenuOpen] = useState<boolean>(false);
@@ -25,30 +22,7 @@ export const Navbar = ({ isLandingPage }: props) => {
     return (
         <>
             {/* Hamburguer Menu Canvas */}
-            <div className="hm-canva"
-                style={
-                    hamburguerMenuOpen ? 
-                    {
-                        opacity: '1',
-                        pointerEvents: 'all',
-                        transform: 'translateX(0)'
-                    } 
-                    : {
-                        opacity: '0',
-                        pointerEvents: 'none',
-                        transform: 'translateX(-95%)'
-                    }
-                }
-            >
-                {/* Close Button */}
-                <button className="close-btn" onClick={ closeHamburguerMenu }>
-                    <CloseIcon className="close-icon" />
-                </button>
-                {/* Links */}
-                <a className="navbar-link nbl-hm" href="#" onClick={ closeHamburguerMenu }> Home </a>
-                <a className="navbar-link nbl-hm" href="#" onClick={ closeHamburguerMenu }> About Us </a>
-                <a className="navbar-link nbl-hm" href="#" onClick={ closeHamburguerMenu }> Shop </a>
-            </div>
+            <HamburguerMenuCanvas hamburguerMenuOpen={hamburguerMenuOpen} closeHamburguerMenu={closeHamburguerMenu} />
 
             {/* Navbar */}
             <section className="navbar">

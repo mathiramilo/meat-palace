@@ -1,0 +1,77 @@
+.navbar {
+    width: 100%;
+    overflow: hidden;
+}
+
+.navbar-container {
+    width: 90%;
+    max-width: 1680px;
+    margin: auto;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nc-left img {
+    width: 85px;
+}
+
+.nc-right {
+    display: flex;
+    align-items: center;
+    gap: 2em;
+}
+
+.navbar-link {
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #f1f1f1;
+    font-size: 0.95rem;
+    transition: all 0.3s ease-out;
+}
+
+.navbar-link:hover {
+    color: var(--linkHover);
+}
+
+.nbl-section {
+    display: none;
+}
+
+.nbl-section:nth-of-type(3) {
+    margin-right: 2em;
+}
+
+.hamburguer-icon {
+    width: 24px;
+}
+
+.login-icon {
+    width: 24px;
+    transition: all 0.3s ease-out;
+}
+
+.login-icon:hover {
+    color: var(--red-100);
+}
+
+.cart-icon {
+    width: 22px;
+    margin-top: -2px;
+    transition: all 0.3s ease-out;
+}
+
+.cart-icon:hover {
+    color: var(--red-100);
+}
+
+@media (min-width: 598px) {
+    .hamburguer-menu {
+        display: none;
+    }
+
+    .nbl-section {
+        display: block;
+    }
+}

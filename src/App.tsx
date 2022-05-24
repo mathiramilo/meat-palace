@@ -1,12 +1,13 @@
 import React from 'react';
+// Import Components
 import { Navbar } from './components/layout/navbar/Navbar';
-
-import './App.css';
+// Import css
+import './styles/styles.ts';
 
 function App() {
   return (
     <div className="App">
-      <Navbar isLandingPage={true} />
+      <Navbar />
     </div>
   );
 }

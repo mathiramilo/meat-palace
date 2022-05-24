@@ -1,0 +1,25 @@
+/* Calistoga */
+@import url('https://fonts.googleapis.com/css2?family=Calistoga&display=swap');
+
+/* Custom Properties */
+:root {
+    /* Colors */
+    --white-100: #ffffff;
+    --white-50: #ECECEC;
+    --white-25: #898989;
+
+    --black-100: #000000;
+    --black-75: #161616;
+
+    --red-100: #C82441;
+    --red-75: #CF2659;
+    /* Link hover */
+    --linkHover: #919191;
+    /* Body background */
+    --mainBackground: #0B0B0B;
+    /* Hero section black */
+    --filterBlack: #00000049;
+
+    /* Fonts */
+    --mainFont: 'Calistoga', cursive;
+}
