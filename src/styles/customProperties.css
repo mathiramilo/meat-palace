@@ -19,6 +19,8 @@
     --mainBackground: #0B0B0B;
     /* Hero section black */
     --filterBlack: #00000049;
+    /* Footer lines */
+    --footerLines: #C2C2C2;
 
     /* Fonts */
     --mainFont: 'Calistoga', cursive;

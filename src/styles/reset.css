@@ -12,12 +12,16 @@ html {
 
 /* Font for placeholders  */
 *::placeholder {
-    font-family: var(mainFont);
+    font-family: var(--mainFont);
 }
 
 /* Setting the font for the inputs */
 input {
-    font-family: var(mainFont);
+    font-family: var(--mainFont);
+}
+
+button {
+    font-family: var(--mainFont);
 }
 
 /* Reset Input type Submit */
@@ -25,10 +29,11 @@ input[type=submit] {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
+    font-family: var(--mainFont);
 }
 
 select {
-    font-family: var(mainFont);
+    font-family: var(--mainFont);
 }
 
 /* Cursor pointer for Submit buttons and selects */
@@ -40,11 +45,11 @@ select:hover {
 
 /* Scrollbar Customization */
 *::-webkit-scrollbar {
-    width: 5px;
-    background-color: white;
+    width: 2px;
+    background-color: var(--mainBackground);
 }
 
 *::-webkit-scrollbar-thumb {
-    background-color: #00000075;
-    border-radius: 20px;
+    background-color: #ffffff86;
+    border-radius: 100%;
 }

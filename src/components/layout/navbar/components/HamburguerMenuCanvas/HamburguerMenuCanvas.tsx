@@ -1,6 +1,6 @@
 import React from 'react';
 import { ReactComponent as CloseIcon } from '../../../../../assets/icons/x.svg';
-import './styles/HamburguerMenuCanvas.css';
+import './HamburguerMenuCanvas.css';
 
 // Props type
 type props = {
