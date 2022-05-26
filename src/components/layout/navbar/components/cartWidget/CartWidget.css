@@ -1,0 +1,27 @@
+.cart-btn {
+    border: none;
+    background: transparent;
+    position: relative;
+}
+
+.cart-icon {
+    width: 22px;
+    margin-top: -2px;
+    transition: all 0.3s ease-out;
+}
+
+.cart-btn:hover .cart-icon {
+    color: var(--red-100);
+}
+
+.cart-btn:hover .cart-items-amount {
+    color: var(--red-100);
+}
+
+.cart-items-amount {
+    position: absolute;
+    bottom: 1px;
+    right: -14px;
+    color: var(--white-75);
+    transition: all 0.3s ease-out;
+}

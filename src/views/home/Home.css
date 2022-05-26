@@ -1,0 +1,284 @@
+/* Hero Section */
+.hero-section {
+    background-image: url(../../assets/img/others/banner.webp);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center center;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    margin-top: -5.6em;
+}
+
+.hero-section::after {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #0000002a;
+}
+
+.hs-greeting {
+    margin: 3em 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.6em;
+    max-width: 280px;
+    z-index: 1;
+}
+
+.hs-greeting h1 {
+    color: var(--white-100);
+    font-weight: 300;
+    font-size: 1.5rem;
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.5);
+}
+
+.hsg-search-meats-btn {
+    width: 200px;
+}
+
+@media (min-width: 598px) {
+    .hero-section {
+        justify-content: flex-end;
+        align-items: center;
+    }
+
+    .hs-greeting {
+        margin-right: 2em;
+    }
+}
+
+@media (min-width: 892px) {
+    .hs-greeting {
+        margin-right: 4em;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hs-greeting {
+        margin-right: 12em;
+    }
+}
+
+@media (min-width: 1400px) {
+    .hs-greeting {
+        margin-right: 20em;
+        transform: scale(1.1);
+    }
+}
+
+/* Bestsellers Section */
+.bestsellers-section {
+    padding: 4em 1em;
+}
+
+.bs-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 4em;
+}
+
+.award-icon {
+    width: 42px;
+    fill: var(--white-50);
+}
+
+.bs-title h2 {
+    color: var(--white-50);
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.bs-btn {
+    display: block;
+    margin: auto;
+    max-width: 260px;
+}
+
+/* Other Products Section */
+.other-products-section {
+    padding: 4em 1em;
+    background-color: var(--black-75);
+}
+
+.ops-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 4em;
+}
+
+.add-cart-home-icon {
+    width: 38px;
+    fill: var(--white-50);
+}
+
+.ops-title h2 {
+    color: var(--white-50);
+    font-weight: 300;
+    text-transform: uppercase;
+}
+
+.ops-products {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3.8em;
+    margin-bottom: 5em;
+}
+
+.op-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.6em;
+    width: 90%;
+}
+
+.op-item img {
+    width: 50%;
+    max-width: 340px;
+}
+
+.op-item-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+}
+
+.op-item-info h3 {
+    color: var(--white-50);
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.op-item-info span {
+    color: var(--white-25);
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+}
+
+.op-item:nth-of-type(2) {
+    flex-direction: row-reverse;
+}
+
+.op-item:nth-of-type(2) .op-item-info {
+    align-items: flex-end;
+}
+
+.ops-btn {
+    display: block;
+    margin: auto;
+    max-width: 260px;
+}
+
+@media (min-width: 598px) {
+    .ops-products {
+        gap: 6em;
+        margin-bottom: 6em;
+    }
+
+    .ops-title {
+        margin-bottom: 6em;
+    }
+}
+
+@media (min-width: 698px) {
+    .op-item {
+        gap: 4em;
+    }
+
+    .op-item-info {
+        transform: scale(1.1);
+    } 
+}
+
+@media (min-width: 992px) {
+    .op-item:nth-of-type(1),
+    .op-item:nth-of-type(3) {
+        transform: translateX(-8em);
+    }
+
+    .op-item:nth-of-type(2) {
+        transform: translateX(8em);
+    }
+}
+
+@media (min-width: 1200px) {
+    .op-item:nth-of-type(1),
+    .op-item:nth-of-type(3) {
+        transform: translateX(-12em);
+    }
+
+    .op-item:nth-of-type(2) {
+        transform: translateX(12em);
+    }
+
+    .ops-products {
+        margin-bottom: 8em;
+    }
+}
+
+/* About Us Section */
+.about-us-section {
+    padding: 6em 1em;
+}
+
+.aus-grid {
+    display: grid;
+    grid-template-columns: 25% 75%;
+    gap: 2em;
+    width: 90%;
+    max-width: 900px;
+    margin: auto;
+    align-items: center;
+}
+
+.about-us-section img {
+    width: 100%;
+    height: 110%;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.aus-info {
+    color: var(--white-50);
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 88%;
+}
+
+.aus-info h2 {
+    font-weight: 300;
+    text-transform: uppercase;
+    font-size: 1.6rem;
+    margin-bottom: 1em;
+}
+
+.aus-info p {
+    font-size: 0.8rem;
+    text-align: start;
+}
+
+@media (min-width: 868px) {
+    .aus-grid {
+        gap: 4em;
+    }
+}
+
+@media (min-width: 992px) {
+    .aus-grid {
+        grid-template-columns: 30% 70%;
+    }
+}

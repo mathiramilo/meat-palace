@@ -1,0 +1,10 @@
+.bs-products-wrapper {
+    margin-bottom: 4em;
+}
+
+.bs-products-wrapper h3 {
+    color: var(--red-75);
+    font-weight: 300;
+    font-size: 1.6rem;
+    text-align: center;
+}

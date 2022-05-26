@@ -1,6 +1,6 @@
 .footer {
     width: 100%;
-    margin-top: 12em;
+    margin-top: 4em;
     overflow: hidden;
 }
 
@@ -53,6 +53,7 @@
     justify-content: center;
     gap: 0.6em;
     color: var(--white-25);
+    margin-bottom: 0.8em;
 }
 
 .footer-developed-by p {

@@ -1,6 +1,8 @@
 .navbar {
     width: 100%;
     overflow: hidden;
+    position: relative;
+    z-index: 5;
 }
 
 .navbar-container {
@@ -11,6 +13,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 100;
 }
 
 .nc-left img {
@@ -52,26 +55,11 @@
     transition: all 0.3s ease-out;
 }
 
-.login-icon:hover {
+.login-btn:hover .login-icon {
     color: var(--red-100);
 }
 
 .login-btn {
-    border: none;
-    background: transparent;
-}
-
-.cart-icon {
-    width: 22px;
-    margin-top: -2px;
-    transition: all 0.3s ease-out;
-}
-
-.cart-icon:hover {
-    color: var(--red-100);
-}
-
-.cart-btn {
     border: none;
     background: transparent;
 }
