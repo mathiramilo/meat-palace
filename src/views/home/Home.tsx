@@ -35,7 +35,7 @@ export const Home = () => {
                     </div>
                     
                     {/* Bestselles Products Wrapper */}
-                    <ItemListContainer greeting={"Bienvenido a Meat Palace (Aqui se motraran nuestros productos bestsellers)!"} />
+                    <ItemListContainer greeting={"Bienvenido a Meat Palace (Aqui se mostraran nuestros productos bestsellers)!"} />
 
                     <a href="#" className="button bs-btn">View All Meats</a>
 
