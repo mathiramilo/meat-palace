@@ -1,6 +1,5 @@
 .navbar {
     width: 100%;
-    overflow: hidden;
     position: relative;
     z-index: 5;
 }
@@ -24,6 +23,7 @@
     display: flex;
     align-items: center;
     gap: 2em;
+    position: relative;
 }
 
 .navbar-link {
@@ -62,6 +62,27 @@
 .login-btn {
     border: none;
     background: transparent;
+}
+
+.user-icon {
+    width: 24px;
+    transition: all 0.3s ease-out;
+}
+
+.user-btn:hover .user-icon {
+    color: var(--red-100);
+}
+
+.user-btn {
+    border: none;
+    background: transparent;
+    position: relative;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: #f1f1f1;
+    font-size: 0.95rem;
+    transition: all 0.3s ease-out;
+    z-index: 2;
 }
 
 @media (min-width: 598px) {

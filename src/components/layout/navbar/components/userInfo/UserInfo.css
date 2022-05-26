@@ -1,0 +1,74 @@
+.user-info-modal {
+    background-color: var(--black-75);
+    position: absolute;
+    top: 42px;
+    right: -6px;
+    z-index: 1;
+    border-radius: 3px;
+    box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.8);
+    padding: 1em 1.5em;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 1em;
+    width: 300px;
+    max-width: 90vw;
+    transition: all 0.15s ease-out;
+}
+
+.user-info-modal::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-right: 12px solid transparent;
+    border-top: 20px solid transparent;
+    border-left: 12px solid transparent;
+    border-bottom: 20px solid var(--black-75);
+    top: -28px;
+    right: 60px;
+}
+
+.user-info-modal h3 {
+    font-weight: 300;
+    font-size: 1.35rem;
+    color: var(--white-50);
+    text-transform: uppercase;
+}
+
+.user-info-modal span {
+    font-weight: 300;
+    text-transform: lowercase;
+    color: var(--red-75);
+    margin-bottom: 0.5em;
+}
+
+.logout-btn {
+    border: none;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    align-self: flex-end;
+}
+
+.logout-btn span {
+    text-transform: capitalize;
+    color: var(--white-50);
+    font-size: 0.95rem;
+    transition: all 0.3s ease-out;
+}
+
+.logout-icon {
+    width: 22px;
+    color: var(--white-50);
+    margin-top: -4px;
+    transition: all 0.3s ease-out;
+}
+
+.logout-btn:hover span,
+.logout-btn:hover .logout-icon {
+    color: #8a8a8a;
+}

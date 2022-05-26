@@ -4,10 +4,16 @@ import logoWhite from '../../../assets/img/logo/logo-white.png';
 // Import icons
 import { ReactComponent as HamburguerIcon } from '../../../assets/icons/hamburguer-menu.svg';
 import { ReactComponent as LoginIcon } from '../../../assets/icons/login.svg';
+import { ReactComponent as UserIcon } from '../../../assets/icons/user.svg';
 // Import components
 import { HamburguerMenuCanvas } from './components/HamburguerMenuCanvas/HamburguerMenuCanvas';
 import { LoginModal } from './components/loginModal/LoginModal';
 import { CartWidget } from './components/cartWidget/CartWidget';
+import { UserInfo } from './components/userInfo/UserInfo';
+// Import interfaces
+import { User } from '../../../services/interfaces/user';
+// Import utilities
+import { isObjEmpty } from '../../../utils/emptyUser';
 // Import css
 import './NavBar.css';
 
@@ -24,13 +30,29 @@ export const NavBar = () => {
     const openLoginModal = () => setLoginModalOpen(true);
     const closeLoginModal = () => setLoginModalOpen(false);
 
+    // State that represents the logged user.
+    const [loggedUser, setLoggedUser] = useState<User>({} as User);
+    const login = () => {
+        setLoggedUser({ email: 'mathiramilo2290@gmail.com', password: '1234' });
+        closeLoginModal();
+    };
+    const logout = () => {
+        setLoggedUser({} as User);
+        closeUserInfo();
+    };
+
+    // State that represents if the user info modal is open or not.
+    const [userInfoOpen, setUserInfoOpen] = useState<boolean>(false);
+    const toggleUserInfo = () => setUserInfoOpen(!userInfoOpen);
+    const closeUserInfo = () => setUserInfoOpen(false);
+    
     return (
         <>
             {/* Hamburguer Menu Canvas */}
             <HamburguerMenuCanvas hamburguerMenuOpen={hamburguerMenuOpen} closeHamburguerMenu={closeHamburguerMenu} />
 
             {/* Login and Register Modal */}
-            <LoginModal isOpen={loginModalOpen} />
+            <LoginModal isOpen={loginModalOpen} login={login} />
 
             {/* Navbar */}
             <header className="navbar">
@@ -55,10 +77,25 @@ export const NavBar = () => {
                            <HamburguerIcon className="hamburguer-icon" />
                         </a>
 
-                        {/* Login Button */}
-                        <button className="navbar-link login-btn" onClick={ () => openLoginModal() }>
-                            <LoginIcon className="login-icon" />
-                        </button>
+
+                        {/* If there is a logged user => show the user button
+                            Otherwise => show the login button */}
+
+                        { !isObjEmpty(loggedUser) ?
+                                // User Button
+                                <div>
+                                    <button className="user-btn" onClick={ () => toggleUserInfo() }>
+                                        <UserIcon className="user-icon" />
+                                    </button>
+                                    <UserInfo isOpen={userInfoOpen} email={loggedUser.email} logout={ logout } />
+                                </div>
+                                
+                                :
+                                // Login Button
+                                <button className="navbar-link login-btn" onClick={ () => openLoginModal() }>
+                                    <LoginIcon className="login-icon" />
+                                </button> }
+
 
                         {/* Cart Button */}
                         <CartWidget itemsAmount={4} />

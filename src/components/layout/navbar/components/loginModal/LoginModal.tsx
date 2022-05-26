@@ -6,9 +6,10 @@ import './LoginModal.css';
 
 type props = {
     isOpen: boolean;
+    login: () => void;
 }
 
-export const LoginModal = ({ isOpen }: props) => {
+export const LoginModal = ({ isOpen, login }: props) => {
 
     // State that represents if the modal is for login o sign up.
     const [isLogin, setIsLogin] = useState<boolean>(true);
@@ -41,7 +42,7 @@ export const LoginModal = ({ isOpen }: props) => {
                         <h1 className="lmm-title"> { isLogin ? 'Login' : 'Sign Up' } </h1>
                         
                         {/* Form */}
-                        <form autoComplete="off" className="lmm-form">
+                        <form onSubmit={() => login() } autoComplete="off" className="lmm-form">
 
                             {/* Form Field */}
                             <div className="form-field">
