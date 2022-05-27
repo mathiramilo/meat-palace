@@ -13,7 +13,7 @@ import { UserInfo } from './components/userInfo/UserInfo';
 // Import interfaces
 import { User } from '../../../services/interfaces/user';
 // Import utilities
-import { isObjEmpty } from '../../../utils/emptyUser';
+import { isObjEmpty } from '../../../utils/emptyObject';
 // Import css
 import './NavBar.css';
 
