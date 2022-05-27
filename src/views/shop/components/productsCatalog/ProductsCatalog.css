@@ -1,0 +1,6 @@
+.products-catalog {
+    display: grid;
+    grid-template-columns: 100%;
+    text-align: center;
+    color: var(--red-75);
+}

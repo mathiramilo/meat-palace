@@ -6,7 +6,7 @@ import './LoginModal.css';
 
 type props = {
     isOpen: boolean;
-    login: () => void;
+    login: (evt: React.FormEvent<HTMLFormElement>) => void;
 }
 
 export const LoginModal = ({ isOpen, login }: props) => {
@@ -42,7 +42,7 @@ export const LoginModal = ({ isOpen, login }: props) => {
                         <h1 className="lmm-title"> { isLogin ? 'Login' : 'Sign Up' } </h1>
                         
                         {/* Form */}
-                        <form onSubmit={() => login() } autoComplete="off" className="lmm-form">
+                        <form onSubmit={(evt) => login(evt) } autoComplete="off" className="lmm-form">
 
                             {/* Form Field */}
                             <div className="form-field">

@@ -1,0 +1,99 @@
+.shop-banner {
+    background-image: url(../../assets/img/others/shop-banner.webp);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 3.5em;
+    position: relative;
+}
+
+.shop-banner::before {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-color: #00000021;
+}
+
+.shop-main {
+    background-color: var(--black-75);
+    padding: 2em;
+    margin-bottom: 4em;
+}
+
+.sm-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2em;
+    margin: auto;
+    margin-bottom: 2em;
+    max-width: 1680px;
+}
+
+.sm-header h1 {
+    color: var(--white-50);
+    font-weight: 300;
+    text-transform: uppercase;
+    width: 675px;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: 1.3rem;
+}
+
+.smh-line {
+    width: 100%;
+    height: 2px;
+    border-radius: 50%;
+    background-color: var(--viewLines);
+}
+
+.sm-cat-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+    margin-bottom: 3em;
+}
+
+.sm-cat {
+    border: none;
+    background-color: transparent;
+    color: #696969;
+    font-size: 0.9rem;
+    transition: all 0.3s ease-out;
+}
+
+.sm-cat:hover {
+    color: var(--white-50);
+}
+
+.shop-legend {
+    text-align: center;
+    color: var(--white-50);
+    font-weight: 300;
+    width: 75%;
+    margin: auto;
+    margin-bottom: 2em;
+    font-size: 0.9rem;
+    max-width: 480px;
+}
+
+@media (min-width: 598px) {
+    .sm-header h1 {
+        font-size: 1.6rem;
+    }
+}
+
+@media (min-width: 798px) {
+    .sm-cat-wrapper {
+        gap: 3em;
+    }
+
+    .shop-legend {
+        margin-bottom: 2em;
+    }
+}

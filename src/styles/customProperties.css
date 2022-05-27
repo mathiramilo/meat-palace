@@ -21,6 +21,8 @@
     --filterBlack: #00000049;
     /* Footer lines */
     --footerLines: #C2C2C2;
+    /* View lines */
+    --viewLines: #414141;
 
     /* Fonts */
     --mainFont: 'Calistoga', cursive;

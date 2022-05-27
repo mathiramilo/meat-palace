@@ -32,7 +32,8 @@ export const NavBar = () => {
 
     // State that represents the logged user.
     const [loggedUser, setLoggedUser] = useState<User>({} as User);
-    const login = () => {
+    const login = (evt: React.FormEvent<HTMLFormElement>) => {
+        evt.preventDefault();
         setLoggedUser({ email: 'mathiramilo2290@gmail.com', password: '1234' });
         closeLoginModal();
     };
@@ -52,7 +53,7 @@ export const NavBar = () => {
             <HamburguerMenuCanvas hamburguerMenuOpen={hamburguerMenuOpen} closeHamburguerMenu={closeHamburguerMenu} />
 
             {/* Login and Register Modal */}
-            <LoginModal isOpen={loginModalOpen} login={login} />
+            <LoginModal isOpen={loginModalOpen} login={login as () => void} />
 
             {/* Navbar */}
             <header className="navbar">
@@ -89,7 +90,6 @@ export const NavBar = () => {
                                     </button>
                                     <UserInfo isOpen={userInfoOpen} email={loggedUser.email} logout={ logout } />
                                 </div>
-                                
                                 :
                                 // Login Button
                                 <button className="navbar-link login-btn" onClick={ () => openLoginModal() }>
