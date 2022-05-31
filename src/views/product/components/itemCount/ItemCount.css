@@ -1,0 +1,65 @@
+.item-count {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.ic-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2em;
+    max-width: 260px;
+}
+
+.icc-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100px;
+    gap: 0.2em;
+}
+
+.icc-buttons span {
+    font-size: 1.2rem;
+}
+
+.icc-buttons button {
+    border: none;
+    background-color: transparent;
+    background-color: #131313;
+    padding: 2px;
+    display: flex;
+    border-radius: 2px;
+    transition: all 0.3s ease-out;
+}
+
+.icc-buttons button:hover {
+    background-color: #0c0c0c;
+}
+
+.icc-buttons button:active {
+    background-color: #1d1d1d;
+}
+
+.icc-buttons button .mp-icon {
+    width: 20px;
+    color: #ffffff;
+}
+
+.icc-stock {
+    font-size: 0.85rem;
+    color: var(--white-25);
+}
+
+.add-to-cart-btn {
+    border: none;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+@media (min-width: 598px) {
+    .add-to-cart-btn {
+        max-width: 260px;
+    }
+}

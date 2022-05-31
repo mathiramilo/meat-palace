@@ -1,0 +1,46 @@
+.product-detail {
+    padding: 2em;
+    margin-bottom: 4em;
+}
+
+.product-detail-gotoshop {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+    margin: auto;
+    max-width: 800px;
+}
+
+.gotoshop-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    border: none;
+    color: var(--white-50);
+    margin-left: 1.4em;
+}
+
+.gotoshop-btn:hover .goback-icon,
+.gotoshop-btn:hover span {
+    color: var(--white-25);
+}
+
+.gotoshop-btn .goback-icon {
+    width: 22px;
+    transition: all 0.3s ease-out;
+}
+
+.gotoshop-btn span {
+    font-size: 1rem;
+    text-transform: uppercase;
+    transition: all 0.3s ease-out;
+}
+
+@media (min-width: 598px) {
+    .product-detail-gotoshop {
+        margin-top: 6em;
+        margin-bottom: 4em;
+    }
+}

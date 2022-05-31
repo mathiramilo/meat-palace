@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 // Import images
 import loginImage from '../../../../../assets/img/others/login.webp';
 // Import css
@@ -7,16 +7,21 @@ import './LoginModal.css';
 type props = {
     isOpen: boolean;
     login: (evt: React.FormEvent<HTMLFormElement>) => void;
+    closeModal: () => void;
 }
 
-export const LoginModal = ({ isOpen, login }: props) => {
+export const LoginModal = ({ isOpen, login, closeModal }: props) => {
 
     // State that represents if the modal is for login o sign up.
     const [isLogin, setIsLogin] = useState<boolean>(true);
 
-    // Closes the modal if the user clicks outside
-    const handleModalClose = (evt: React.MouseEvent<HTMLDivElement>) => {
-        
+    // Closes the modal if the user clicks outside of it
+    const handleModalClose = (evt: any) => {
+        let divID = evt.target.getAttribute('id');
+        if (divID === 'login-modal-container') {
+            setIsLogin(true);
+            closeModal();
+        }
     }
 
     return (

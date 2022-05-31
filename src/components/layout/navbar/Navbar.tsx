@@ -32,11 +32,13 @@ export const NavBar = () => {
 
     // State that represents the logged user.
     const [loggedUser, setLoggedUser] = useState<User>({} as User);
+    // login() sets the logged user and closes the modal.
     const login = (evt: React.FormEvent<HTMLFormElement>) => {
         evt.preventDefault();
         setLoggedUser({ email: 'mathiramilo2290@gmail.com', password: '1234' });
         closeLoginModal();
     };
+    // logout() sets an empty user as logged user and closes de user info.
     const logout = () => {
         setLoggedUser({} as User);
         closeUserInfo();
@@ -53,7 +55,7 @@ export const NavBar = () => {
             <HamburguerMenuCanvas hamburguerMenuOpen={hamburguerMenuOpen} closeHamburguerMenu={closeHamburguerMenu} />
 
             {/* Login and Register Modal */}
-            <LoginModal isOpen={loginModalOpen} login={login as () => void} />
+            <LoginModal isOpen={loginModalOpen} login={login as () => void} closeModal={closeLoginModal} />
 
             {/* Navbar */}
             <header className="navbar">
@@ -88,7 +90,7 @@ export const NavBar = () => {
                                     <button className="user-btn" onClick={ () => toggleUserInfo() }>
                                         <UserIcon className="user-icon" />
                                     </button>
-                                    <UserInfo isOpen={userInfoOpen} email={loggedUser.email} logout={ logout } />
+                                    <UserInfo isOpen={userInfoOpen} email={loggedUser.email} logout={logout} closeUserInfo={closeUserInfo} />
                                 </div>
                                 :
                                 // Login Button

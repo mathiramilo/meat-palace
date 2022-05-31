@@ -1,7 +1,12 @@
 import React from 'react';
+import './Button.css';
 
-export const Button = () => {
+type props = {
+    children: JSX.Element | JSX.Element[];
+}
+
+export const Button = ({ children }: props) => {
     return (
-        <div>Button</div>
+        <a href="#" className="button">{ children }</a>
     )
 }

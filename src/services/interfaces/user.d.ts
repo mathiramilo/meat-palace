@@ -1,4 +1,4 @@
-// Definition of the interfaces
+// Definition of the User Interface
 
 export interface User {
     email: string;
