@@ -1,0 +1,144 @@
+.billing {
+    margin-top: 3em !important;
+    margin-bottom: 5em !important;
+    width: 90%;
+    margin: auto;
+}
+
+.billing-main-grid {
+    display: grid;
+    grid-template-columns: 100%;
+    column-gap: 2em;
+    row-gap: 3em;
+    width: 100%;
+    max-width: 1600px;
+    margin: auto;
+    color: var(--white-50);
+}
+
+.billing-information {
+
+}
+
+.bi-title, .or-title {
+    font-weight: 300;
+    margin-bottom: 1.8em;
+    text-transform: uppercase;
+    font-size: 1rem;
+}
+
+.bi-fields {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 1em;
+}
+
+.name-lastname, .postal-phone {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 100%;
+}
+
+.name-lastname > .form-field, .postal-phone > .form-field {
+    width: 100%;
+}
+
+@media (min-width: 598px) {
+    .name-lastname, .postal-phone {
+        flex-direction: row;
+    }
+}
+
+@media (min-width: 900px) {
+    .billing-main-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1200px) {
+    .billing-main-grid {
+        grid-template-columns: 55% calc(45% - 3em);
+        column-gap: 3em;
+    }
+}
+
+.or-cost {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 2em;
+    margin-bottom: 3em;
+}
+
+.or-cost span {
+    font-size: 1rem;
+}
+
+.or-cost label {
+    font-size: 0.8rem;
+}
+
+.orc-subtotal {
+    display: flex;
+    justify-content: space-between;
+    background-color: #232323;
+    padding: 1.2em;
+}
+
+.orc-shipping {
+    display: flex;
+    align-items: flex-start;
+    gap: 1em;
+    justify-content: space-between;
+    padding: 1.2em;
+    background-color: #131313;
+}
+
+.orcs-prices {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+}
+
+.orcs-prices span {
+    font-size: 0.8rem;
+}
+
+.orcs-select {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+}
+
+.orcs-select > div {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.payment-options {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    margin-left: 0.4em;
+    margin-bottom: 2.8em;
+}
+
+.payment-options div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.payment-options label {
+    font-size: 0.9rem;
+}
+
+.finish-order-btn {
+    border: none;
+    width: 100%;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}

@@ -1,0 +1,59 @@
+.billing-product-card {
+    padding: 0.8em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.billing-product-card:nth-of-type(odd) {
+    background-color: #232323;
+}
+
+.billing-product-card:nth-of-type(even) {
+    background-color: #131313;
+}
+
+.bpc-data {
+    display: flex;
+    gap: 0.8em;
+}
+
+.bpc-data img {
+    object-fit: cover;
+    width: 100px;
+    height: 70px;
+    max-width: 180px;
+}
+
+.bpc-data-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.2em;
+}
+
+.bpc-data-info div {
+    display: flex;
+    flex-direction: column;
+}
+
+.bdi-name {
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+.bdi-price {
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    color: var(--white-25);
+    margin-bottom: 1em;
+}
+
+.bdi-amount {
+    text-transform: uppercase;
+    font-size: 0.85rem;
+}
+
+.bpc-total span {
+    font-size: 0.9rem;
+}

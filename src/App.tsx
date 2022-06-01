@@ -6,6 +6,7 @@ import { Footer } from 'components/layout/footer/Footer';
 import { Home } from 'views/home/Home';
 import { Shop } from 'views/shop/Shop';
 import { ProductDetail } from 'views/product/ProductDetail';
+import { Billing } from 'views/billing/Billing';
 // Import css
 import 'styles/styles.ts';
 
@@ -15,7 +16,8 @@ function App() {
       <NavBar />
       {/* <Home /> */}
       {/* <Shop /> */}
-      <ProductDetail />
+      {/* <ProductDetail /> */}
+      <Billing />
       <Footer />
     </div>
   );

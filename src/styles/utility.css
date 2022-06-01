@@ -27,3 +27,32 @@
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
     transition: all 0.3s ease-out;
 }
+
+/* Forms */
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+}
+
+.form-field > label {
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+.form-field > input,
+.form-field > select {
+    border: none;
+    padding: 10px;
+    background-color: #3b3b3b;
+    border-radius: 1px;
+    border-bottom: 2px solid #727272;
+    color: var(--white-100);
+    transition: all 0.3s ease-out;
+}
+
+.form-field > input:focus,
+.form-field > select:focus {
+    outline: none;
+    border-color: var(--white-100);
+}

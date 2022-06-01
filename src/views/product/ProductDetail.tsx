@@ -11,6 +11,7 @@ import './ProductDetail.css';
 
 
 const TEST_PRODUCT: Product = {
+    id: 0,
     name: 'Wagyu Tomahawk 1kg',
     price: 38.60,
     description: 'It is the product of the best Australian and Uruguayan Wagyu genetics, from cattle raised in the recognized natural grasslands of Uruguay, fattened and finished with special diets in Feedlot. It encompasses a product of the highest quality and consistency, which is exported from Uruguay to the most demanding markets in the world.',

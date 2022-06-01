@@ -45,32 +45,6 @@
     max-width: 300px;
 }
 
-.form-field {
-    display: flex;
-    flex-direction: column;
-    gap: 0.6em;
-}
-
-.form-field > label {
-    font-size: 0.9rem;
-    font-weight: 300;
-}
-
-.form-field > input {
-    border: none;
-    padding: 10px;
-    background-color: #3b3b3b;
-    border-radius: 1px;
-    border-bottom: 2px solid #727272;
-    color: var(--white-100);
-    transition: all 0.3s ease-out;
-}
-
-.form-field > input:focus {
-    outline: none;
-    border-color: var(--white-100);
-}
-
 .remember-me {
     display: flex;
     align-items: center;

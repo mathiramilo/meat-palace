@@ -41,7 +41,7 @@ export const ProductDetailCard = ({ product }: props) => {
                     <span> US$ {price.toFixed(2)} </span>
                     <hr />
                     {/* Item Count component */}
-                    <ItemCount stock={0} initial={1} onAdd={onAdd} />
+                    <ItemCount stock={stock} initial={1} onAdd={onAdd} />
                 </div>
             </div>
 
