@@ -1,12 +1,12 @@
 import React from 'react';
 // Import icons
-import { ReactComponent as AwardIcon } from '../../assets/icons/award.svg';
-import { ReactComponent as AddCartIcon } from '../../assets/icons/add-cart.svg';
+import { ReactComponent as AwardIcon } from 'assets/icons/award.svg';
+import { ReactComponent as AddCartIcon } from 'assets/icons/add-cart.svg';
 // Import images
-import provoloneCheesesImg from '../../assets/img/others/provolone.webp';
-import sausagesImg from '../../assets/img/others/sausages.webp';
-import breadsImg from '../../assets/img/others/breads.webp';
-import aboutUsImg from '../../assets/img/others/aside.webp';
+import provoloneCheesesImg from 'assets/img/others/provolone.webp';
+import sausagesImg from 'assets/img/others/sausages.webp';
+import breadsImg from 'assets/img/others/breads.webp';
+import aboutUsImg from 'assets/img/others/aside.webp';
 // Import components
 import { ItemListContainer } from './components/itemListContainer/ItemListContainer';
 // Import css

@@ -12,3 +12,18 @@
 .button:hover {
     background-color: #dadada;
 }
+
+.button:active {
+    background-color: #919191;   
+}
+
+/* Button Disabled */
+.button-disabled {
+    background-color: #3d3d3d;
+    padding: 6px;
+    border-radius: 2px;
+    color: #242424;
+    text-align: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease-out;
+}

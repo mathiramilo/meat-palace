@@ -1,12 +1,12 @@
 import React, { ReactComponentElement } from 'react';
 // Interfaces
-import { Product } from '../../../../services/interfaces/product';
+import { Product } from 'services/interfaces/product';
 // Components
 import { ItemCount } from '../itemCount/ItemCount';
 // Styles
 import './ProductDetailCard.css';
 
-import Img from '../../../../assets/img/products/wagyu/tomahawk-wagyu.jpg';
+import Img from 'assets/img/products/wagyu/tomahawk-wagyu.jpg';
 
 // The props that recibes this component have this types.
 type props = {
@@ -20,7 +20,7 @@ export const ProductDetailCard = ({ product }: props) => {
     const { name, price, description, img, category, cartAmount, stock } = product;
     
     // Product image path (Not works)
-    const ImgPath = `../../../../assets/img/products/wagyu/tomahawk-wagyu.jpg`;
+    const ImgPath = `assets/img/products/wagyu/tomahawk-wagyu.jpg`;
 
     // This function adds "amount" times a product to the cart and decreases the stock (new stock = stock - amount).
     const onAdd = (amount: number) => {
@@ -41,7 +41,7 @@ export const ProductDetailCard = ({ product }: props) => {
                     <span> US$ {price.toFixed(2)} </span>
                     <hr />
                     {/* Item Count component */}
-                    <ItemCount stock={stock} initial={1} onAdd={onAdd} />
+                    <ItemCount stock={0} initial={1} onAdd={onAdd} />
                 </div>
             </div>
 

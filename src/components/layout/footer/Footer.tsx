@@ -1,8 +1,8 @@
 import React from 'react';
 // Import icons
-import { ReactComponent as GithubIcon } from '../../../assets/icons/github.svg';
+import { ReactComponent as GithubIcon } from 'assets/icons/github.svg';
 // Import logo
-import logoWhite from '../../../assets/img/logo/logo-white.png';
+import logoWhite from 'assets/img/logo/logo-white.png';
 // Import css
 import './Footer.css';
 

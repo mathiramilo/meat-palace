@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ReactComponent as LogoutIcon } from '../../../../../assets/icons/logout.svg';
+import { ReactComponent as LogoutIcon } from 'assets/icons/logout.svg';
 import './UserInfo.css';
 
 type props = {

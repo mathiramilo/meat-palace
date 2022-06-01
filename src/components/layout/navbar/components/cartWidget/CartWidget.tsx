@@ -1,6 +1,6 @@
 import React from 'react';
 // Import icons
-import { ReactComponent as CartIcon } from '../../../../../assets/icons/cart.svg';
+import { ReactComponent as CartIcon } from 'assets/icons/cart.svg';
 //Import css
 import './CartWidget.css';
 

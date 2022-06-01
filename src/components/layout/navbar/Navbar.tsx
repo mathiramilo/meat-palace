@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 // Import logo
-import logoWhite from '../../../assets/img/logo/logo-white.png';
+import logoWhite from 'assets/img/logo/logo-white.png';
 // Import icons
-import { ReactComponent as HamburguerIcon } from '../../../assets/icons/hamburguer-menu.svg';
-import { ReactComponent as LoginIcon } from '../../../assets/icons/login.svg';
-import { ReactComponent as UserIcon } from '../../../assets/icons/user.svg';
+import { ReactComponent as HamburguerIcon } from 'assets/icons/hamburguer-menu.svg';
+import { ReactComponent as LoginIcon } from 'assets/icons/login.svg';
+import { ReactComponent as UserIcon } from 'assets/icons/user.svg';
 // Import components
 import { HamburguerMenuCanvas } from './components/HamburguerMenuCanvas/HamburguerMenuCanvas';
 import { LoginModal } from './components/loginModal/LoginModal';
 import { CartWidget } from './components/cartWidget/CartWidget';
 import { UserInfo } from './components/userInfo/UserInfo';
 // Import interfaces
-import { User } from '../../../services/interfaces/user';
+import { User } from 'services/interfaces/user';
 // Import utilities
-import { isObjEmpty } from '../../../utils/emptyObject';
+import { isObjEmpty } from 'utils/emptyObject';
 // Import css
 import './NavBar.css';
 

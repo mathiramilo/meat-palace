@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 // Import images
-import loginImage from '../../../../../assets/img/others/login.webp';
+import loginImage from 'assets/img/others/login.webp';
 // Import css
 import './LoginModal.css';
 
