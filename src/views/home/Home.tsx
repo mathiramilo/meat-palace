@@ -8,7 +8,7 @@ import sausagesImg from 'assets/img/others/sausages.webp';
 import breadsImg from 'assets/img/others/breads.webp';
 import aboutUsImg from 'assets/img/others/aside.webp';
 // Import components
-import { ItemListContainer } from './components/itemListContainer/ItemListContainer';
+import { ItemListContainer } from 'components/common/itemListContainer/ItemListContainer';
 // Import css
 import './Home.css';
 
@@ -35,7 +35,7 @@ export const Home = () => {
                     </div>
                     
                     {/* Bestselles Products Wrapper */}
-                    <ItemListContainer greeting={"Welcome to Meat Palace (Our bestsellers products will be showin here)!"} />
+                    <ItemListContainer category={'bestsellers'} />
 
                     <a href="#" className="button bs-btn">View All Meats</a>
 

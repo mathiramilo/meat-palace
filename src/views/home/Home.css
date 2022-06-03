@@ -81,7 +81,7 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
-    margin-bottom: 4em;
+    margin-bottom: 6em;
 }
 
 .award-icon {
@@ -98,6 +98,7 @@
 .bs-btn {
     display: block;
     margin: auto;
+    margin-top: 4.5em;
     max-width: 260px;
 }
 

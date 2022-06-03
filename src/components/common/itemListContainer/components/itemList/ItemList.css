@@ -1,0 +1,25 @@
+.item-list {
+    display: grid;
+    place-items: center;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4em;
+    row-gap: 2em;
+    width: 100%;
+    max-width: 1200px;
+    margin: auto;
+    margin-bottom: 2em;
+}
+
+@media (min-width: 772px) {
+    .item-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1098px) {
+    .item-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

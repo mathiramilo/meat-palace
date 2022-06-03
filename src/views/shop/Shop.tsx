@@ -1,10 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 // Components
-import { ProductsCatalog } from './components/productsCatalog/ProductsCatalog';
+import { ItemListContainer } from 'components/common/itemListContainer/ItemListContainer';
+// Import interfaces
+import { Category } from 'services/interfaces/product.d';
 // Css
 import './Shop.css';
 
 export const Shop = () => {
+
+    const [category, setCategory] = useState<Category>();
+
     return (
         <div className="shop">
             
@@ -22,15 +27,45 @@ export const Shop = () => {
 
                 {/* Categories Wrapper */}
                 <div className="sm-cat-wrapper">
-                    <button className="sm-cat">All Meats</button>
-                    <button className="sm-cat">Wagyu Meats</button>
-                    <button className="sm-cat">Feedlot Meats</button>
-                    <button className="sm-cat">Standard Meats</button>
-                    <button className="sm-cat">Other Products</button>
+                    <button 
+                        onClick={() => setCategory(undefined)}
+                        style={category === undefined ? {color: 'var(--white-50)'} : {}} 
+                        className="sm-cat"
+                    >
+                        All Meats
+                    </button>
+                    <button 
+                        onClick={() => setCategory(Category.Wagyu)}
+                        style={category === 'wagyu' ? {color: 'var(--white-50)'} : {}} 
+                        className="sm-cat"
+                    >
+                        Wagyu Meats
+                    </button>
+                    <button 
+                        onClick={() => setCategory(Category.Feedlot)}
+                        style={category === 'feedlot' ? {color: 'var(--white-50)'} : {}} 
+                        className="sm-cat"
+                    >
+                        Feedlot Meats
+                    </button>
+                    <button 
+                        onClick={() => setCategory(Category.Standard)}
+                        style={category === 'standard' ? {color: 'var(--white-50)'} : {}} 
+                        className="sm-cat"
+                    >
+                        Standard Meats
+                    </button>
+                    <button 
+                        onClick={() => setCategory(Category.Other)}
+                        style={category === 'other' ? {color: 'var(--white-50)'} : {}} 
+                        className="sm-cat"
+                    >
+                        Other Products
+                    </button>
                 </div>
 
                 {/* Shop Catalog */}
-                <ProductsCatalog products={ [] } />
+                <ItemListContainer category={category} />
 
             </section>
 
