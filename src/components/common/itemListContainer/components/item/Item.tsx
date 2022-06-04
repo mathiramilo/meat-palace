@@ -18,7 +18,7 @@ export const Item = ({ name, price, category, img }: props) => {
     return (
         <div className="item-card">
             <div className="ic-img">
-                <img src={require('assets/img/products/wagyu/ribeye-wagyu.jpg')} alt={name} />
+                <img src={`assets/products/${category}/${img}`} alt={name} />
 
                 <div className="ic-overlay">
                     <button className="quick-add-btn">

@@ -55,7 +55,7 @@ export const ItemListContainer = ({ category }: props) => {
                         name: 'Wagyu Outside Skirt 1kg',
                         price: 32.90,
                         description: 'It is the product of the best Australian and Uruguayan Wagyu genetics, from cattle raised in the recognized natural grasslands of Uruguay, fattened and finished with special diets in Feedlot. It encompasses a product of the highest quality and consistency, which is exported from Uruguay to the most demanding markets in the world.',
-                        img: 'outside-skirt-wagyu.jpg',
+                        img: 'outside-skirt-wagyu.webp',
                         category: Category.Wagyu,
                         cartAmount: 2,
                         stock: 25

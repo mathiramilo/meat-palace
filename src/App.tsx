@@ -14,10 +14,10 @@ function App() {
   return (
     <div className="App">
       <NavBar />
-      {/* <Home /> */}
+      <Home />
       <Shop />
-      {/* <ProductDetail /> */}
-      {/* <Billing /> */}
+      <ProductDetail />
+      <Billing />
       <Footer />
     </div>
   );

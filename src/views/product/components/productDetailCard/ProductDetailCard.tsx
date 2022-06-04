@@ -6,8 +6,6 @@ import { ItemCount } from '../itemCount/ItemCount';
 // Styles
 import './ProductDetailCard.css';
 
-import Img from 'assets/img/products/wagyu/tomahawk-wagyu.jpg';
-
 // The props that recibes this component have this types.
 type props = {
     product: Product;
@@ -18,9 +16,6 @@ export const ProductDetailCard = ({ product }: props) => {
 
     // Product properties
     const { name, price, description, img, category, cartAmount, stock } = product;
-    
-    // Product image path (Not works)
-    const ImgPath = `assets/img/products/wagyu/tomahawk-wagyu.jpg`;
 
     // This function adds "amount" times a product to the cart and decreases the stock (new stock = stock - amount).
     const onAdd = (amount: number) => {
@@ -33,7 +28,7 @@ export const ProductDetailCard = ({ product }: props) => {
             {/* Product main info and amount */}
             <div className="pdc-main">
                 <div className="pdcm-img">
-                    <img src={Img} alt={name} />
+                    <img src={`assets/products/${category}/${img}`} alt={name} />
                 </div>
 
                 <div className="pdcm-data">

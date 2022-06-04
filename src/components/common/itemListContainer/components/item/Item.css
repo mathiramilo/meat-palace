@@ -9,10 +9,13 @@
 .ic-img {
     position: relative;
     overflow: hidden;
+    min-height: 150px;
 }
 
 .ic-img img {
     object-fit: cover;
+    height: 160px;
+    max-width: 160px;
 }
 
 .item-card:hover .ic-overlay {
@@ -68,11 +71,20 @@
     gap: 0.6em;
 }
 
+.item-card:hover h4 {
+    color: var(--white-25);    
+}
+
+.item-card:hover span {
+    color: #525252;    
+}
+
 .ic-name-price h4 {
     text-transform: uppercase;
     color: var(--white-50);
     font-weight: 300;
     font-size: 0.6rem;
+    transition: all 0.3s ease-out;
 }
 
 .ic-name-price span {
@@ -80,6 +92,7 @@
     color: var(--white-25);
     font-weight: 300;
     font-size: 0.6rem;
+    transition: all 0.3s ease-out;
 }
 
 @media (min-width: 460px) {
@@ -89,5 +102,10 @@
     
     .ic-name-price span {
         font-size: 0.85rem;
+    }
+
+    .ic-img img {
+        height: 210px;
+        max-width: 210px;
     }
 }

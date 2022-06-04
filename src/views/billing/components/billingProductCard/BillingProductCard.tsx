@@ -1,6 +1,4 @@
 import React from 'react';
-// Import images
-import TomaHawk from 'assets/img/products/wagyu/tomahawk-wagyu.jpg';
 // Import interfaces
 import { Category } from 'services/interfaces/product';
 // Import styles
@@ -21,7 +19,7 @@ export const BillingProductCard = ({ name, price, img, category, cartAmount }: p
             
             {/* Image and info section */}
             <div className="bpc-data">
-                <img src={require(`assets/img/products/wagyu/tomahawk-wagyu.jpg`)} alt={name} />
+                <img src={`assets/products/${category}/${img}`} alt={name} />
                 <div className="bpc-data-info">
                     <div>
                         <span className="bdi-name"> {name} </span>
