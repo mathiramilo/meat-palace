@@ -42,11 +42,11 @@ export const ProductDetail = () => {
             <ViewHeader title={'Product Detail'} />
 
             {/* Loading */}
-            {loading && <div style={loaderErrorStyles}><Loader /></div>}
+            {loading && <div className="loader-error"><Loader /></div>}
 
             {/* Error (ex: product not available) */}
             {error && (
-                <div style={loaderErrorStyles}>
+                <div className="loader-error">
                     <div style={{ display: 'flex',
                         flexDirection: 'column',
                         alignItems: 'center',
@@ -54,7 +54,7 @@ export const ProductDetail = () => {
                         color: '#6b6b6b' 
                     }}>
                         <ErrorIcon style={{width: '32px'}} />
-                        <h3 style={errorTitle}> Product not available </h3>
+                        <h3 className="error-title"> Product not available </h3>
                     </div>
                 </div> 
             )}
@@ -70,21 +70,7 @@ export const ProductDetail = () => {
                     <ProductDetailCard product={product} />
                 </div>
             )}
-            
+
         </div>
     )
-}
-
-
-/* Styles */
-const loaderErrorStyles = {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    padding: '10em'
-}
-
-const errorTitle = {
-    fontSize: '1rem',
-    fontWeight: '300'
 }

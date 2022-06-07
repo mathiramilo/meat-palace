@@ -2,7 +2,7 @@ import { Category, Product } from "services/interfaces/product.d";
 
 /* Function that returns a promise that contains
 the product to shown */
-export const getItem = async (): Promise<Product> => new Promise((res, rej) => {
+export const getItem = (): Promise<Product> => new Promise((res, rej) => {
     setTimeout(() => {
         res({
             id: 0,
