@@ -3,18 +3,20 @@ import React from 'react';
 import { ReactComponent as AddToCartIcon } from 'assets/icons/add-cart.svg';
 import { ReactComponent as InfoIcon } from 'assets/icons/info.svg';
 // Import interfaces
-import { Category } from 'services/interfaces/product';
+import { Product } from 'services/interfaces/product';
 // Import styles
 import './Item.css';
 
 type props = {
-    name: string;
-    price: number;
-    category: Category;
-    img: string;
+    product: Product;
 }
 
-export const Item = ({ name, price, category, img }: props) => {
+export const Item = ({ product }: props) => {
+
+    /* Product destructuring to get the necesary info
+    => name, price, img, category */
+    const { name, price, category, img } = product;
+
     return (
         <div className="item-card">
             <div className="ic-img">

@@ -15,7 +15,7 @@ will be shown. */
 export const ItemList = ({ products }: props) => {
     return (
         <div className="item-list">
-            { products?.map(({ id, name, price, category, img }) => <Item key={id} name={name} price={price} category={category} img={img} /> ) }
+            { products?.map(product => <Item key={product.id} product={product} /> ) }
         </div>
     )
 }

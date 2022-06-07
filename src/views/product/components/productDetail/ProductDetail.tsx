@@ -4,7 +4,7 @@ import { Product } from 'services/interfaces/product';
 // Components
 import { ItemCount } from '../itemCount/ItemCount';
 // Styles
-import './ProductDetailCard.css';
+import './ProductDetail.css';
 
 // The props that recibes this component have this types.
 type props = {
