@@ -38,6 +38,32 @@
 .form-field > label {
     font-size: 0.9rem;
     font-weight: 300;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.form-error {
+    font-size: 0.6rem;
+    animation: error 0.5s;
+}
+
+@keyframes error {
+    0% {
+        transform: translateX(15px);
+    }
+
+    25% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(8px);
+    }
+
+    75% {
+        transform: translateX(0);
+    }
 }
 
 .form-field > input,

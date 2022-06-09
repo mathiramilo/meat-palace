@@ -1,4 +1,7 @@
 import React, { useState } from 'react';
+// Import toastify
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 // Import logo
 import logoWhite from 'assets/img/logo/logo-white.png';
 // Import icons
@@ -30,24 +33,51 @@ export const NavBar = () => {
     const openLoginModal = () => setLoginModalOpen(true);
     const closeLoginModal = () => setLoginModalOpen(false);
 
+    //  === Login ===
+
     // State that represents the logged user.
     const [loggedUser, setLoggedUser] = useState<User>({} as User);
+
     // login() sets the logged user and closes the modal.
-    const login = (evt: React.FormEvent<HTMLFormElement>) => {
-        evt.preventDefault();
-        setLoggedUser({ email: 'mathiramilo2290@gmail.com', password: '1234' });
+    const login = (email: string, password: string) => {
+        setLoggedUser({ email: email, password: password });
         closeLoginModal();
+        loginToast(loggedUser?.email);
     };
+
     // logout() sets an empty user as logged user and closes de user info.
     const logout = () => {
         setLoggedUser({} as User);
         closeUserInfo();
+        logoutToast();
     };
+
+    // signup() sets the logged user and registrates him in the database.
+    const signup = (email: string, password: string) => {
+        setLoggedUser({ email: email, password: password });
+        closeLoginModal();
+        signupToast(loggedUser?.email);
+    }
 
     // State that represents if the user info modal is open or not.
     const [userInfoOpen, setUserInfoOpen] = useState<boolean>(false);
     const toggleUserInfo = () => setUserInfoOpen(!userInfoOpen);
     const closeUserInfo = () => setUserInfoOpen(false);
+
+    // Login toast
+    const loginToast = (email: string) => toast.info(`Logged in as ${email}`, {
+        className: 'toast-custom'
+    })
+
+    // Logout toast
+    const logoutToast = () => toast.info('Logged out', {
+        className: 'toast-custom'
+    });
+
+    // Signup toast
+    const signupToast = (email: string) => toast.info(`Registered as ${email}`, {
+        className: 'toast-custom'
+    })
     
     return (
         <>
@@ -55,7 +85,7 @@ export const NavBar = () => {
             <HamburguerMenuCanvas hamburguerMenuOpen={hamburguerMenuOpen} closeHamburguerMenu={closeHamburguerMenu} />
 
             {/* Login and Register Modal */}
-            <LoginModal isOpen={loginModalOpen} login={login as () => void} closeModal={closeLoginModal} />
+            <LoginModal isOpen={loginModalOpen} login={login} signup={signup} closeModal={closeLoginModal} />
 
             {/* Navbar */}
             <header className="navbar">
@@ -90,11 +120,17 @@ export const NavBar = () => {
                                     <button className="user-btn" onClick={ () => toggleUserInfo() }>
                                         <UserIcon className="user-icon" />
                                     </button>
-                                    <UserInfo isOpen={userInfoOpen} email={loggedUser.email} logout={logout} closeUserInfo={closeUserInfo} />
+                                    <UserInfo 
+                                        isOpen={userInfoOpen} 
+                                        email={loggedUser.email} logout={logout} closeUserInfo={closeUserInfo} 
+                                    />
                                 </div>
                                 :
                                 // Login Button
-                                <button className="navbar-link login-btn" onClick={ () => openLoginModal() }>
+                                <button 
+                                    className="navbar-link login-btn" 
+                                    onClick={ () => openLoginModal() }
+                                >
                                     <LoginIcon className="login-icon" />
                                 </button> }
 

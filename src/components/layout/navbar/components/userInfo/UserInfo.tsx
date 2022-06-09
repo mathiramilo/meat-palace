@@ -24,7 +24,7 @@ export const UserInfo = ({ isOpen, email, logout, closeUserInfo }: props) => {
                 } }
         >
             <h3>Logged In As</h3>
-            <span> mathiramilo2290@gmail.com </span>
+            <span> {email} </span>
             <button onClick={ () => logout() } className="logout-btn">
                 <span>Logout</span>
                 <LogoutIcon className="logout-icon" />

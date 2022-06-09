@@ -1,4 +1,7 @@
 import React from 'react';
+// Import toastify
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 // Import components
 import { NavBar } from 'components/layout/navbar/NavBar';
 import { Footer } from 'components/layout/footer/Footer';
@@ -19,6 +22,20 @@ function App() {
       <ProductDetail />
       {/* <Billing /> */}
       <Footer />
+
+      {/* Info messages Toast Container */}
+      <ToastContainer 
+        position="bottom-right"
+        autoClose={2500}
+        hideProgressBar
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss={false}
+        draggable
+        pauseOnHover
+        theme='dark'
+      />
     </div>
   );
 }

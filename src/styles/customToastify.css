@@ -1,0 +1,7 @@
+.toast-custom {
+    background-color: #181818;
+    font-family: var(--mainFont);
+    font-weight: 300;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
