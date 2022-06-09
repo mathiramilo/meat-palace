@@ -82,8 +82,13 @@ export const LoginModal = ({ isOpen, login, signup, closeModal }: props) => {
 
             } else {
                 // Email or Password Empty.
-                email === '' && setErrors({...errors, email: 'This field is required'});
-                password === '' && setErrors({...errors, password: 'This field is required'});
+                if (email === '' && password === '') {
+                    setErrors({...errors, email: 'This field is required', password: 'This field is required'});
+                } else if (email === '') {
+                    setErrors({...errors, email: 'This field is required', password: ''});
+                } else {
+                    setErrors({...errors, password: 'This field is required', email: ''});
+                }
             }
 
         // Signup form control.
@@ -101,20 +106,23 @@ export const LoginModal = ({ isOpen, login, signup, closeModal }: props) => {
 
                 // Email, password or repeatPassword are empty.
                 if (email === '' || password === '' || repeatPassword === '') {
-                    email === '' && setErrors({...errors, email: 'This field is required'});
-                    password === '' && setErrors({...errors, password: 'This field is required'});
-                    repeatPassword === '' && setErrors({...errors, repeatPassword: 'This field is required'});
+                    setErrors({
+                        ...errors, 
+                        email: email === '' ? 'This field is required' : '',
+                        password: password === '' ? 'This field is required' : '',
+                        repeatPassword: repeatPassword === '' ? 'This field is required' : ''
+                    })
                 } else {
                     // All fields are completed.
                     if (password.length <= 6) {
                         // Password length is not greater than 6.
-                        setErrors({...errors, password: 'Minimum 7 characters'});
+                        setErrors({...errors, password: 'Minimum 7 characters', email: '', repeatPassword: ''});
                     } else if (!password.match(/\d/)) {
                         // Password doesn`t contain a number.
-                        setErrors({...errors, password: 'Must contain a number'});
+                        setErrors({...errors, password: 'Must contain a number', email: '', repeatPassword: ''});
                     } else if (password !== repeatPassword) {
                         // Passwords don`t coincide.
-                        setErrors({...errors, password: 'Passwords don`t coincide', repeatPassword: 'Passwords don`t coincide'});
+                        setErrors({...errors, password: 'Passwords don`t coincide', repeatPassword: 'Passwords don`t coincide', email: ''});
                     }
                 } 
 

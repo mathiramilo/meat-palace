@@ -33,7 +33,7 @@ export const NavBar = () => {
     const openLoginModal = () => setLoginModalOpen(true);
     const closeLoginModal = () => setLoginModalOpen(false);
 
-    //  === Login ===
+    /* Login/Signup */
 
     // State that represents the logged user.
     const [loggedUser, setLoggedUser] = useState<User>({} as User);
