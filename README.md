@@ -1,9 +1,26 @@
 # Meat Palace
 Meat Palace is an ecommerce created with React JS, where you can buy meats and other products.
+
 ## Information
 Final Project of Coderhouse React JS Course
-* Developed by: Mathias Ramilo
-* Website: 
+* **Developed by: Mathias Ramilo**
+* **Website:**
+
+## Tools
+### Languages
+* **HTML5**
+* **CSS3**
+* **Typescript**
+### Frameworks
+* **React JS**
+### Libraries
+* 
+### Others
+* **Firebase**
+
+## Contact
+* **GitHub:** https://github.com/mathiramilo
+* **Linkedin:** https://www.linkedin.com/in/mathias-ramilo/
 
 # Getting Started with Create React App
 
