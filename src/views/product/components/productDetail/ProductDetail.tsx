@@ -12,7 +12,7 @@ type props = {
 }
 
 // This component recibes the product to detail.
-export const ProductDetailCard = ({ product }: props) => {
+export const ProductDetail = ({ product }: props) => {
 
     // Product properties
     const { name, price, description, img, category, cartAmount, stock } = product;

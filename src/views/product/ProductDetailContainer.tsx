@@ -5,7 +5,7 @@ import { ReactComponent as GobackIcon } from 'assets/icons/go-back.svg';
 import { ReactComponent as ErrorIcon } from 'assets/icons/error.svg';
 // Import components
 import { ViewHeader } from 'components/common/viewHeader/ViewHeader';
-import { ProductDetailCard } from './components/productDetail/ProductDetail';
+import { ProductDetail } from './components/productDetail/ProductDetail';
 import { Loader } from 'components/common/loader/Loader';
 // Import services
 import { Category, Product } from 'services/interfaces/product.d';
@@ -19,7 +19,7 @@ import './ProductDetailContainer.css';
 
 /* This component fetches the product data and
 passes it to ProductDetail to be shown */
-export const ProductDetail = () => {
+export const ProductDetailContainer = () => {
 
     /* Product to be shown */
     const [product, setProduct] = useState<Product>({} as Product);
@@ -101,7 +101,7 @@ export const ProductDetail = () => {
                         </button>
                     </Link>
 
-                    <ProductDetailCard product={product} />
+                    <ProductDetail product={product} />
                 </div>
             )}
 
