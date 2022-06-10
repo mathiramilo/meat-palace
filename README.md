@@ -1,7 +1,7 @@
 <!-- MeatPalace Logo -->
 <div style='margin-bottom:2em;'>
     <p style='text-align:center;'>
-        <img src="src/assets/img/logo/logo.png" alt="Logo MeatHouse" width="300px">
+        <img src="src/assets/img/logo/logo.png" alt="Logo MeatHouse" width="300px" style='margin: auto;'>
     </p>
 </div>
 
