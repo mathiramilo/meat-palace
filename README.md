@@ -15,7 +15,21 @@ To obtain this great result, I designed each page and each element of this websi
 
 ### **Home**
 ![Home Design](/readme/design/home.png)
-<span style='font-size: 10px'>Home Page</span>
+
+### **Shop**
+![Shop Design](/readme/design/shop.png)
+
+### **Product Detail**
+![Product Detail Design](/readme/design/product-detail.png)
+
+### **Cart**
+![Cart Design](/readme/design/cart.png)
+
+### **Finish Buying**
+![Billing Design](/readme/design/billing.png)
+
+### **Login/Signup Modals**
+![Login/Signup Design](/readme/design/login-signup.png)
 
 ## **Information**
 Final Project of Coderhouse React JS Course
