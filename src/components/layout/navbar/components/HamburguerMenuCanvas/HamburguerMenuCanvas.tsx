@@ -1,5 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+// Import icons
 import { ReactComponent as CloseIcon } from 'assets/icons/x.svg';
+// Import styles
 import './HamburguerMenuCanvas.css';
 
 // Props type
@@ -35,9 +38,9 @@ export const HamburguerMenuCanvas = ({ hamburguerMenuOpen, closeHamburguerMenu }
             </button>
             
             {/* Links */}
-            <a className="navbar-link nbl-hm" href="#" onClick={ () => closeHamburguerMenu() }> Home </a>
-            <a className="navbar-link nbl-hm" href="#" onClick={ () => closeHamburguerMenu() }> About Us </a>
-            <a className="navbar-link nbl-hm" href="#" onClick={ () => closeHamburguerMenu() }> Shop </a>
+            <Link className="navbar-link nbl-hm" to='/' onClick={ () => closeHamburguerMenu() }> Home </Link>
+            <Link className="navbar-link nbl-hm" to='/#about-us' onClick={ () => closeHamburguerMenu() }> About Us </Link>
+            <Link className="navbar-link nbl-hm" to='/shop/all' onClick={ () => closeHamburguerMenu() }> Shop </Link>
         </div>    
     )
 }

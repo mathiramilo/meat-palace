@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 // Import toastify
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -92,23 +93,24 @@ export const NavBar = () => {
                 <div className="navbar-container">
                     {/* Logo */}
                     <div className="nc-left">
-                        <a href="#">
+                        <Link to='/'>
                             <img src={logoWhite} alt="Meat Palace Logo" />
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Navigation */}
                     <nav className="nc-right">
-                        <a className="navbar-link nbl-section" href="#"> Home </a>
-                        <a className="navbar-link nbl-section" href="#"> About Us </a>
-                        <a className="navbar-link nbl-section" href="#"> Shop </a>
+                        <Link className="navbar-link nbl-section" to='/'> Home </Link>
+                        <Link className="navbar-link nbl-section" to='/#about-us'> About Us </Link>
+                        <Link className="navbar-link nbl-section" to='/shop/all'> Shop </Link>
 
                         {/* Hamburguer Menu */}
-                        <a className="navbar-link hamburguer-menu" 
-                           href="#"
-                           onClick={ () => openHamburguerMenu() }>
+                        <button 
+                            className="navbar-link hamburguer-menu" 
+                            onClick={ () => openHamburguerMenu() }
+                        >
                            <HamburguerIcon className="hamburguer-icon" />
-                        </a>
+                        </button>
 
 
                         {/* If there is a logged user => show the user button
@@ -136,7 +138,9 @@ export const NavBar = () => {
 
 
                         {/* Cart Button */}
-                        <CartWidget itemsAmount={4} />
+                        <Link to='/cart'>
+                            <CartWidget itemsAmount={4} />
+                        </Link>
                     </nav>
                 </div>
             </header>

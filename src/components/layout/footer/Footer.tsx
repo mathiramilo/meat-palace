@@ -1,9 +1,10 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 // Import icons
 import { ReactComponent as GithubIcon } from 'assets/icons/github.svg';
 // Import logo
 import logoWhite from 'assets/img/logo/logo-white.png';
-// Import css
+// Import styles
 import './Footer.css';
 
 export const Footer = () => {
@@ -27,9 +28,9 @@ export const Footer = () => {
 
                 {/* Footer Navigation */}
                 <nav className="footer-nav">
-                    <a className="footer-link navbar-link" href="#"> Home </a>
-                    <a className="footer-link navbar-link" href="#"> About Us </a>
-                    <a className="footer-link navbar-link" href="#"> Shop </a>
+                    <Link className="footer-link navbar-link" to='/'> Home </Link>
+                    <Link className="footer-link navbar-link" to='/#about-us'> About Us </Link>
+                    <Link className="footer-link navbar-link" to='/shop/all'> Shop </Link>
                 </nav>
 
                 {/* Footer Developed By */}

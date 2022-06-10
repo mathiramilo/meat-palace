@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 // Import icons
 import { ReactComponent as AwardIcon } from 'assets/icons/award.svg';
 import { ReactComponent as AddCartIcon } from 'assets/icons/add-cart.svg';
@@ -9,11 +10,36 @@ import breadsImg from 'assets/img/others/breads.webp';
 import aboutUsImg from 'assets/img/others/aside.webp';
 // Import components
 import { ItemListContainer } from 'components/common/itemListContainer/ItemListContainer';
+// Import services
+import { Category } from 'services/interfaces/product.d';
 // Import css
 import './Home.css';
 
 
 export const Home = () => {
+    
+    /* This useRef() hook creates a reference
+    to about us section. */
+    const aboutUs = useRef<HTMLElement>(null);
+
+    /* Function that scrolls to about us section. */
+    const scrollToAboutUs = () => aboutUs?.current?.scrollIntoView();
+
+    /* The useLocation() hook returns an
+    object that contains all the url path info. */
+    const location = useLocation();
+
+    /* Scroll to top or to about us section
+    every time the window location changes. */
+    useEffect(() => {
+        
+        location.hash === '#about-us' ?
+            scrollToAboutUs()
+        :
+            window.scrollTo(0, 0);
+
+    }, [location])
+
     return (
         <>
             <div className="home">
@@ -22,7 +48,7 @@ export const Home = () => {
                 <section className="hero-section">
                     <div className="hs-greeting">
                         <h1>The best place to buy your meats</h1>
-                        <a href="#" className="button hsg-search-meats-btn">Search Meats</a>    
+                        <Link className="button hsg-search-meats-btn" to='/shop/all'>Search Meats</Link>    
                     </div>
                 </section>
 
@@ -34,10 +60,10 @@ export const Home = () => {
                         <h2>Our Bestsellers</h2>
                     </div>
                     
-                    {/* Bestselles Products Wrapper */}
-                    <ItemListContainer category={'bestsellers'} />
-
-                    <a href="#" className="button bs-btn">View All Meats</a>
+                    {/* Bestsellers Products Wrapper */}
+                    <ItemListContainer category={'bestsellers'} limit={{hasLimit: true, value: 4}} />
+                    
+                    <Link className="button bs-btn" to='/shop/all'>View All Meats</Link>
 
                 </section>
 
@@ -82,12 +108,12 @@ export const Home = () => {
                     </div>
 
                     {/* View Other Products Button */}
-                    <a href="#" className="button ops-btn">View Other Products</a>
+                    <Link className="button ops-btn" to='/shop/other'>View Other Products</Link>
 
                 </section>
 
                 {/* About Us Section */}
-                <section className="about-us-section">
+                <section ref={aboutUs} className="about-us-section">
                     
                     <div className="aus-grid">
                         <img src={aboutUsImg} alt="Meats Aside" />

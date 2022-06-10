@@ -81,6 +81,7 @@
 
 .ic-name-price h4 {
     text-transform: uppercase;
+    text-align: center;
     color: var(--white-50);
     font-weight: 300;
     font-size: 0.6rem;

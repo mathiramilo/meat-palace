@@ -10,12 +10,22 @@ import { getProducts } from 'services/data/getProducts';
 // Import styles
 import './ItemListContainer.css';
 
-type props = {
-    category: Category | string | undefined;
+
+/* ItemListContainer recibes by props a
+Limit object that specifies if there is
+a limit of products to by shown and his value. */
+interface Limit {
+    hasLimit: boolean;
+    value?: number;
 }
 
-/* This component shows all the products of the category recibed. */
-export const ItemListContainer = ({ category }: props) => {
+type props = {
+    category: string;
+    limit: Limit;
+}
+
+/* This component shows all the products . */
+export const ItemListContainer = ({ category, limit }: props) => {
 
     /* State that represents the array of products that will be
     shown in the ItemList component. */
@@ -26,6 +36,12 @@ export const ItemListContainer = ({ category }: props) => {
     const [error, setError] = useState(false);
 
     useEffect(() => {
+
+        /* Reset the products to an empty
+        array and loading to true. */
+        setProducts([]);
+        setLoading(true);
+
         /* getProducts() returns a promise that will be
         resolved in 2 seconds and the result is an array with
         the products to be shown. */
@@ -33,7 +49,19 @@ export const ItemListContainer = ({ category }: props) => {
 
         /* Handle the promise */
         getAllProducts.then((result) => {
-            setProducts(result as Product[]);
+
+            /* If there is a limit => return only
+            the amount of products as limit indicates.
+            Otherwise => return the products of the category
+            indicated by props. */
+            if (limit.hasLimit) { 
+                setProducts(result.filter(product => product.id < 4));
+            } else {
+                category === 'all' ?
+                    setProducts(result)
+                :
+                    setProducts(result.filter(product => product.category === category));
+            }  
         })
         .catch((error) => {
             setError(true);
@@ -42,7 +70,7 @@ export const ItemListContainer = ({ category }: props) => {
             setLoading(false);
         })
     
-    }, [])
+    }, [category])
 
     return (
         <>

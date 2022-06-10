@@ -46,6 +46,11 @@
     margin-right: 2em;
 }
 
+.hamburguer-menu {
+    background-color: transparent;
+    border: none;
+}
+
 .hamburguer-icon {
     width: 24px;
 }

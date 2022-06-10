@@ -28,7 +28,7 @@ export const ProductDetailCard = ({ product }: props) => {
             {/* Product main info and amount */}
             <div className="pdc-main">
                 <div className="pdcm-img">
-                    <img src={`assets/products/${category}/${img}`} alt={name} />
+                    <img src={`/assets/products/${category}/${img}`} alt={name} />
                 </div>
 
                 <div className="pdcm-data">
