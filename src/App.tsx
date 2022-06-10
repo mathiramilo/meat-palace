@@ -10,7 +10,7 @@ import { Home } from 'views/home/Home';
 import { Shop } from 'views/shop/Shop';
 import { ProductDetailContainer } from 'views/product/ProductDetailContainer';
 import { Billing } from 'views/billing/Billing';
-// Import css
+// Import styles
 import 'styles/styles.ts';
 
 function App() {

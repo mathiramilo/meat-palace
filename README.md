@@ -1,6 +1,21 @@
-![Logo MeatHouse](/src/assets/img/logo/logo.png)
+<!-- MeatPalace Logo -->
+<div style='margin-bottom:2em;'>
+    <p style='text-align:center;'>
+        <img src="src/assets/img/logo/logo.png" alt="Logo MeatHouse" width="300px">
+    </p>
+</div>
 
 **Meat Palace** is an ecommerce created with React JS where you can buy meats of diferent types and qualities as well as other products for a barbacue.
+
+## **Design**
+To obtain this great result, I designed each page and each element of this website in a complete and detailed way. To carry out this task I use **Figma**.
+
+![Global Design](/readme/design/global-design.jpg)
+<span style='font-size: 10px'>Global Design</span>
+
+### **Home**
+![Home Design](/readme/design/home.png)
+<span style='font-size: 10px'>Home Page</span>
 
 ## **Information**
 Final Project of Coderhouse React JS Course
