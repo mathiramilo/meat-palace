@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-// Import toastify
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// Import toasts
+import { loginToast, signupToast, logoutToast } from 'utils/toasts';
 // Import logo
 import logoWhite from 'assets/img/logo/logo-white.png';
 // Import icons
@@ -34,6 +33,11 @@ export const NavBar = () => {
     const openLoginModal = () => setLoginModalOpen(true);
     const closeLoginModal = () => setLoginModalOpen(false);
 
+    // State that represents if the user info modal is open or not.
+    const [userInfoOpen, setUserInfoOpen] = useState<boolean>(false);
+    const toggleUserInfo = () => setUserInfoOpen(!userInfoOpen);
+    const closeUserInfo = () => setUserInfoOpen(false);
+
     /* Login/Signup */
 
     // State that represents the logged user.
@@ -43,7 +47,7 @@ export const NavBar = () => {
     const login = (email: string, password: string) => {
         setLoggedUser({ email: email, password: password });
         closeLoginModal();
-        loginToast(loggedUser?.email);
+        loginToast(email);
     };
 
     // logout() sets an empty user as logged user and closes de user info.
@@ -57,28 +61,8 @@ export const NavBar = () => {
     const signup = (email: string, password: string) => {
         setLoggedUser({ email: email, password: password });
         closeLoginModal();
-        signupToast(loggedUser?.email);
+        signupToast(email);
     }
-
-    // State that represents if the user info modal is open or not.
-    const [userInfoOpen, setUserInfoOpen] = useState<boolean>(false);
-    const toggleUserInfo = () => setUserInfoOpen(!userInfoOpen);
-    const closeUserInfo = () => setUserInfoOpen(false);
-
-    // Login toast
-    const loginToast = (email: string) => toast.info(`Logged in as ${email}`, {
-        className: 'toast-custom'
-    })
-
-    // Logout toast
-    const logoutToast = () => toast.info('Logged out', {
-        className: 'toast-custom'
-    });
-
-    // Signup toast
-    const signupToast = (email: string) => toast.info(`Registered as ${email}`, {
-        className: 'toast-custom'
-    })
     
     return (
         <>

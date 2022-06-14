@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 // Import toastify
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 // Import components
 import { NavBar } from 'components/layout/navbar/NavBar';
@@ -10,6 +10,7 @@ import { Home } from 'views/home/Home';
 import { Shop } from 'views/shop/Shop';
 import { ProductDetailContainer } from 'views/product/ProductDetailContainer';
 import { Billing } from 'views/billing/Billing';
+import { Cart } from 'views/cart/Cart';
 // Import styles
 import 'styles/styles.ts';
 
@@ -26,7 +27,7 @@ function App() {
                     <Route path='/shop/:category' element={<Shop />} />
                     <Route path='/shop' element={<Navigate to='/shop/all' />} />
                     <Route path='/product/:productID' element={<ProductDetailContainer />} />
-                    {/* <Route path='/cart' element={<Cart />} /> */}
+                    {<Route path='/cart' element={<Cart />} />}
                     <Route path='/billing' element={<Billing />} />
                     {/* Any unknown path will be redirected to home page */}
                     <Route path='*' element={<Navigate to='/' />} />

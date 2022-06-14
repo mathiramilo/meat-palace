@@ -41,7 +41,7 @@ export const ProductDetailContainer = () => {
 
     /* Gets the item and handle the component states */
     useEffect(() => {
-
+        
         /* getAllProducts caontains an array of 
         all the products. */
         const getAllProducts = getProducts();
@@ -52,16 +52,14 @@ export const ProductDetailContainer = () => {
             productID => asign it to the product state, 
             otherwise => navigate to home. */
             result.find(product => product.id === parseInt(productID as string)) ?
-
                 setProduct(result.find(product => product.id === parseInt(productID as string)) as Product)
             :
                 navigate('/')
-
         })
         .catch((error) => setError(true))
         .finally(() => setLoading(false));
 
-    }, [productID]);
+    }, [productID, navigate]);
 
     /* Scroll to top when the component is rendered
     for the first time. */

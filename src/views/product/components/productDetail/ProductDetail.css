@@ -64,6 +64,44 @@
     color: var(--white-25);
 }
 
+/* Finish Buying */
+.finish-buying {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+}
+
+.fb-info {
+    font-size: 0.85rem;
+    letter-spacing: 0.2px;
+    color: var(--white-25);
+}
+
+.fb-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6em;
+}
+
+.fb-btn {
+    text-transform: uppercase;
+    font-size: 1rem;
+    border: 1px solid var(--white-50);
+}
+
+.fb-continue-shopping-btn {
+    text-transform: uppercase;
+    font-size: 1rem;
+    background-color: transparent !important;
+    border: 1px solid var(--white-50);
+    color: var(--white-50) !important;
+    box-shadow: none !important;
+}
+
+.fb-continue-shopping-btn:hover {
+    background-color: #333333 !important;
+}
+
 @media (min-width: 598px) {
     .pdc-main {
         flex-direction: row;
@@ -77,10 +115,34 @@
     .pdcm-data {
         width: 68%;
     }
+
+    .fb-btn {
+        max-width: 260px;
+    }
+    
+    .fb-continue-shopping-btn {
+        max-width: 260px;
+    }
 }
 
 @media (min-width: 800px) {
     .product-detail-card {
         padding: 1.6em;
+    }
+
+    .pdcm-img {
+        max-height: 200px;
+    }
+
+    .fb-buttons {
+        flex-direction: row;
+    }
+
+    .fb-btn {
+        flex: 0 0 200px;
+    }
+    
+    .fb-continue-shopping-btn {
+        flex: 0 0 200px;
     }
 }
