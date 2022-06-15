@@ -6,7 +6,7 @@ type params = {
     signup: (email: string, password: string) => void;
 }
 
-export const useLSForm = ({ closeModal, login, signup }: params) => {
+export const useLSModal = ({ closeModal, login, signup }: params) => {
 
     // State that represents if the modal is for login or sign up.
     const [isLogin, setIsLogin] = useState<boolean>(true);

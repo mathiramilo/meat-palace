@@ -1,7 +1,7 @@
 // Images
 import loginImage from 'assets/img/others/login.webp';
 // Hooks
-import { useLSForm } from 'hooks/useLSForm';
+import { useLSModal } from 'hooks/useLSModal';
 // Styles
 import './LoginModal.css';
 
@@ -16,7 +16,7 @@ export const LoginModal = ({ isOpen, login, signup, closeModal }: props) => {
     
     /* Obtain all the necesary states and functions from
     the hook useLSForm(). */
-    const { handleModalClose, formValidation, isLogin, setIsLogin, errors, resetErrors, email, setEmail, password, setPassword, repeatPassword, setRepeatPassword } = useLSForm({closeModal, login, signup});
+    const { handleModalClose, formValidation, isLogin, setIsLogin, errors, resetErrors, email, setEmail, password, setPassword, repeatPassword, setRepeatPassword } = useLSModal({closeModal, login, signup});
 
     return (
         <>
