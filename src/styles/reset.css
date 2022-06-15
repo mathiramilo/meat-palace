@@ -48,10 +48,12 @@ select {
     font-family: var(--mainFont);
 }
 
-/* Cursor pointer for Submit buttons and selects */
+/* Cursor pointer for Submit buttons, selects, labels and input radios */
 input[type=submit]:hover,
 input[type=file]:hover,
-select:hover {
+input[type=radio]:hover,
+select:hover,
+label:hover {
     cursor: pointer;
 }
 
