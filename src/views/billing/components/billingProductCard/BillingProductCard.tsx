@@ -1,7 +1,6 @@
-import React from 'react';
-// Import interfaces
-import { Category } from 'services/interfaces/product';
-// Import styles
+// Interfaces
+import { Category } from 'interfaces/product';
+// Styles
 import './BillingProductCard.css';
 
 type props = {

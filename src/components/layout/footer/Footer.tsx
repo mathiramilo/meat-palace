@@ -1,10 +1,10 @@
-import React from 'react';
+// Router
 import { Link } from 'react-router-dom';
-// Import icons
+// Icons
 import { ReactComponent as GithubIcon } from 'assets/icons/github.svg';
-// Import logo
+// Logo
 import logoWhite from 'assets/img/logo/logo-white.png';
-// Import styles
+// Styles
 import './Footer.css';
 
 export const Footer = () => {
@@ -38,6 +38,7 @@ export const Footer = () => {
                     <p>Developed by Mathias Ramilo</p>
                     <a href="https://github.com/mathiramilo"
                        target="_blank" 
+                       rel="noreferrer"
                        className="github-btn"
                     >
                         <GithubIcon className="github-icon" />

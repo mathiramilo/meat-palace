@@ -1,11 +1,10 @@
-import React from 'react';
-// Import components
+// Components
 import { ViewHeader } from 'components/common/viewHeader/ViewHeader';
 import { BillingCartResume } from './components/billingCartResume/BillingCartResume';
-// Import styles
+// Interfaces
+import { Category, Product } from 'interfaces/product.d';
+// Styles
 import './Billing.css';
-// Import interfaces
-import { Category, Product } from 'services/interfaces/product.d';
 
 
 // Products array for testing the BillingCartResume component

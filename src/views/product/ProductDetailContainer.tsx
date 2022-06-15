@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+// Router
 import { Link, useNavigate, useParams } from 'react-router-dom';
-// Import icons
+// Icons
 import { ReactComponent as GobackIcon } from 'assets/icons/go-back.svg';
 import { ReactComponent as ErrorIcon } from 'assets/icons/error.svg';
-// Import components
+// Components
 import { ViewHeader } from 'components/common/viewHeader/ViewHeader';
 import { ProductDetail } from './components/productDetail/ProductDetail';
 import { Loader } from 'components/common/loader/Loader';
-// Import services
-import { Category, Product } from 'services/interfaces/product.d';
-import { getItem } from 'services/data/getItem';
-import { getProducts } from 'services/data/getProducts';
-// Import utils
+// Services
+import { getProducts } from 'services/getProducts';
+// Interfaces
+import { Product } from 'interfaces/product';
+// Utils
 import { isObjEmpty } from 'utils/emptyObject';
 // Import css
 import './ProductDetailContainer.css';

@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 // Components
 import { ItemListContainer } from 'components/common/itemListContainer/ItemListContainer';
-// Import interfaces
-import { Category } from 'services/interfaces/product.d';
 // Css
 import './Shop.css';
 
@@ -16,6 +14,12 @@ export const Shop = () => {
 
     /* Hook to navigate to another path. */
     const navigate = useNavigate();
+
+    /* Function that navigates to a category path in
+    order to load his products. */
+    const handleClickCategory = (category: string) => {
+        navigate(`/shop/${category}`);
+    }
 
     /* Scroll to top when the component
     is rendered for the first time. */
@@ -41,35 +45,35 @@ export const Shop = () => {
                 {/* Categories Wrapper */}
                 <div className="sm-cat-wrapper">
                     <button 
-                        onClick={() => navigate('/shop/all')}
+                        onClick={() => handleClickCategory('all')}
                         style={category === 'all' ? {color: 'var(--white-50)'} : {}} 
                         className="sm-cat"
                     >
                         All Meats
                     </button>
                     <button 
-                        onClick={() => navigate('/shop/wagyu')}
+                        onClick={() => handleClickCategory('wagyu')}
                         style={category === 'wagyu' ? {color: 'var(--white-50)'} : {}} 
                         className="sm-cat"
                     >
                         Wagyu Meats
                     </button>
                     <button 
-                        onClick={() => navigate('/shop/feedlot')}
+                        onClick={() => handleClickCategory('feedlot')}
                         style={category === 'feedlot' ? {color: 'var(--white-50)'} : {}} 
                         className="sm-cat"
                     >
                         Feedlot Meats
                     </button>
                     <button 
-                        onClick={() => navigate('/shop/standard')}
+                        onClick={() => handleClickCategory('standard')}
                         style={category === 'standard' ? {color: 'var(--white-50)'} : {}} 
                         className="sm-cat"
                     >
                         Standard Meats
                     </button>
                     <button 
-                        onClick={() => navigate('/shop/other')}
+                        onClick={() => handleClickCategory('other')}
                         style={category === 'other' ? {color: 'var(--white-50)'} : {}} 
                         className="sm-cat"
                     >

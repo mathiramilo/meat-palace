@@ -1,18 +1,17 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
+// Router
 import { Link, useLocation } from 'react-router-dom';
-// Import icons
+// Icons
 import { ReactComponent as AwardIcon } from 'assets/icons/award.svg';
 import { ReactComponent as AddCartIcon } from 'assets/icons/add-cart.svg';
-// Import images
+// Images
 import provoloneCheesesImg from 'assets/img/others/provolone.webp';
 import sausagesImg from 'assets/img/others/sausages.webp';
 import breadsImg from 'assets/img/others/breads.webp';
 import aboutUsImg from 'assets/img/others/aside.webp';
-// Import components
+// Components
 import { ItemListContainer } from 'components/common/itemListContainer/ItemListContainer';
-// Import services
-import { Category } from 'services/interfaces/product.d';
-// Import css
+// Styles
 import './Home.css';
 
 

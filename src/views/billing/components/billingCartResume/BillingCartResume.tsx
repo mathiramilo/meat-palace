@@ -1,5 +1,4 @@
-import React from 'react';
-import { Product } from 'services/interfaces/product';
+import { Product } from 'interfaces/product';
 import { BillingProductCard } from '../billingProductCard/BillingProductCard';
 
 type props = {

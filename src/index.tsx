@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from 'App';
 import reportWebVitals from 'misc/reportWebVitals';

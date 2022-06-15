@@ -1,4 +1,4 @@
-// Definition of the Product Interface
+// Definition of Product and Category Interface
 
 export enum Category {Wagyu = 'wagyu', Feedlot = 'feedlot', Standard = 'standard', Other = 'other'};
 

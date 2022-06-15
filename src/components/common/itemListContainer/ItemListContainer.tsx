@@ -5,8 +5,8 @@ import { ReactComponent as ErrorIcon } from 'assets/icons/error.svg';
 import { Loader } from 'components/common/loader/Loader';
 import { ItemList } from './components/itemList/ItemList';
 // Import services
-import { Category, Product } from 'services/interfaces/product.d';
-import { getProducts } from 'services/data/getProducts';
+import { Product } from 'interfaces/product';
+import { getProducts } from 'services/getProducts';
 // Import styles
 import './ItemListContainer.css';
 
@@ -30,6 +30,7 @@ export const ItemListContainer = ({ category, limit }: props) => {
     /* State that represents the array of products that will be
     shown in the ItemList component. */
     const [products, setProducts] = useState<Product[]>([]);
+
     /* States that represents if the products are loading and other
     that represents if there was any error. */
     const [loading, setLoading] = useState(true);
@@ -70,7 +71,7 @@ export const ItemListContainer = ({ category, limit }: props) => {
             setLoading(false);
         })
     
-    }, [category])
+    }, [category, limit.hasLimit])
 
     return (
         <>

@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-// React Router Dom
+import { useState } from 'react';
+// Router
 import { Link } from 'react-router-dom';
 // Interfaces
-import { Product } from 'services/interfaces/product';
+import { Product } from 'interfaces/product';
 // Components
 import { ItemCount } from '../itemCount/ItemCount';
 // Toasts

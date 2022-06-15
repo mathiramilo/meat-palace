@@ -1,4 +1,4 @@
-import {toast} from 'react-toastify';
+import { toast } from 'react-toastify';
 
 /* Login toast */
 export const loginToast = (email: string) => toast.info(`Logged in as ${email}`, {

@@ -1,9 +1,8 @@
-import React from 'react';
-// Import Interfaces
-import { Product } from 'services/interfaces/product';
-// Import components
+// Interfaces
+import { Product } from 'interfaces/product';
+// Components
 import { Item } from '../item/Item';
-// Import styles
+// Styles
 import './ItemList.css';
 
 type props = {

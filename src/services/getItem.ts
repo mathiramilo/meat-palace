@@ -1,4 +1,4 @@
-import { Category, Product } from "services/interfaces/product.d";
+import { Category, Product } from 'interfaces/product';
 
 /* Function that returns a promise that contains
 the product to shown */

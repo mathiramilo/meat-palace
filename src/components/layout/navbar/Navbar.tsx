@@ -1,23 +1,24 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+// Router
 import { Link } from 'react-router-dom';
-// Import toasts
+// Toasts
 import { loginToast, signupToast, logoutToast } from 'utils/toasts';
-// Import logo
+// Logo
 import logoWhite from 'assets/img/logo/logo-white.png';
-// Import icons
+// Icons
 import { ReactComponent as HamburguerIcon } from 'assets/icons/hamburguer-menu.svg';
 import { ReactComponent as LoginIcon } from 'assets/icons/login.svg';
 import { ReactComponent as UserIcon } from 'assets/icons/user.svg';
-// Import components
+// Components
 import { HamburguerMenuCanvas } from './components/HamburguerMenuCanvas/HamburguerMenuCanvas';
 import { LoginModal } from './components/loginModal/LoginModal';
 import { CartWidget } from './components/cartWidget/CartWidget';
 import { UserInfo } from './components/userInfo/UserInfo';
-// Import interfaces
-import { User } from 'services/interfaces/user';
-// Import utilities
+// Interfaces
+import { User } from 'interfaces/user';
+// Utilities
 import { isObjEmpty } from 'utils/emptyObject';
-// Import css
+// Styles
 import './NavBar.css';
 
 

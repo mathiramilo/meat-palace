@@ -1,11 +1,11 @@
-import React from 'react';
+// Router
 import { Link } from 'react-router-dom';
-// Import icons
+// Icons
 import { ReactComponent as AddToCartIcon } from 'assets/icons/add-cart.svg';
 import { ReactComponent as InfoIcon } from 'assets/icons/info.svg';
-// Import interfaces
-import { Product } from 'services/interfaces/product';
-// Import styles
+// Interfaces
+import { Product } from 'interfaces/product';
+// Styles
 import './Item.css';
 
 type props = {
