@@ -124,7 +124,7 @@ export const NavBar = () => {
 
                         {/* Cart Button */}
                         <Link to='/cart'>
-                            <CartWidget itemsAmount={4} />
+                            <CartWidget />
                         </Link>
                     </nav>
                 </div>

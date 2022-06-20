@@ -1,19 +1,20 @@
-import React from 'react';
-// Import icons
+import React, { useContext } from 'react';
+// Icons
 import { ReactComponent as CartIcon } from 'assets/icons/cart.svg';
-//Import css
+// Contexts
+import { CartContext } from 'contexts/CartContext';
+// Styles
 import './CartWidget.css';
 
 
-type props = {
-    itemsAmount: number;
-}
+export const CartWidget = () => {
 
-export const CartWidget = ({ itemsAmount }: props) => {
+    const { cartLength } = useContext(CartContext);
+
     return (
         <button className="navbar-link cart-btn">
             <CartIcon className="cart-icon" />
-            <span className="cart-items-amount">{ itemsAmount }</span>
+            <span className="cart-items-amount">{ cartLength() }</span>
         </button>
     )
 }

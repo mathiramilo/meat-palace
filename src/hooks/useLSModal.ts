@@ -48,18 +48,10 @@ export const useLSModal = ({ closeModal, login, signup }: params) => {
     const formValidation = (evt: React.FormEvent<HTMLFormElement>) => {
         evt.preventDefault();
 
-        // For debugging.
-        console.log(errors);
-        console.log(email);
-        console.log(password);
-        console.log(repeatPassword);
-
         // Login form control.
         if (isLogin) {
-
             // Email and Password not empty.
             if (email !== '' && password !== '') {
-
                 // Verifies if email and password combination is correct.
                 if (email === 'mathiramilo2290@gmail.com' && password === '12345678') {
                     // Login and reset the form.
@@ -88,7 +80,7 @@ export const useLSModal = ({ closeModal, login, signup }: params) => {
 
         // Signup form control.
         } else {
-
+            
             // The data entered by the user satisfies all the requirements.
             if (email !== '' && password !== '' && repeatPassword !== '' && password.length > 6 && password.match(/\d/) && password === repeatPassword) {
 

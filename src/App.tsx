@@ -12,6 +12,8 @@ import { Shop } from 'views/shop/Shop';
 import { ProductDetailContainer } from 'views/product/ProductDetailContainer';
 import { Billing } from 'views/billing/Billing';
 import { Cart } from 'views/cart/Cart';
+// Contexts
+import { CartContextProvider } from 'contexts/CartContext';
 // Styles
 import 'styles/styles.ts';
 
@@ -20,35 +22,37 @@ function App() {
         <div className="App">
 
             <BrowserRouter>
-                <NavBar />
+                <CartContextProvider>
+                    <NavBar />
 
-                <Routes>
-                    <Route path='/' element={<Home />} />
-                    <Route path='/home' element={<Home />} />
-                    <Route path='/shop/:category' element={<Shop />} />
-                    <Route path='/shop' element={<Navigate to='/shop/all' />} />
-                    <Route path='/product/:productID' element={<ProductDetailContainer />} />
-                    {<Route path='/cart' element={<Cart />} />}
-                    <Route path='/billing' element={<Billing />} />
-                    {/* Any unknown path will be redirected to home page */}
-                    <Route path='*' element={<Navigate to='/' />} />
-                </Routes>
+                    <Routes>
+                        <Route path='/' element={<Home />} />
+                        <Route path='/home' element={<Home />} />
+                        <Route path='/shop/:category' element={<Shop />} />
+                        <Route path='/shop' element={<Navigate to='/shop/all' />} />
+                        <Route path='/product/:productID' element={<ProductDetailContainer />} />
+                        {<Route path='/cart' element={<Cart />} />}
+                        <Route path='/billing' element={<Billing />} />
+                        {/* Any unknown path will be redirected to home page */}
+                        <Route path='*' element={<Navigate to='/' />} />
+                    </Routes>
 
-                <Footer />
+                    <Footer />
 
-                {/* Info messages Toast Container */}
-                <ToastContainer 
-                    position="bottom-right"
-                    autoClose={2500}
-                    hideProgressBar
-                    newestOnTop={false}
-                    closeOnClick
-                    rtl={false}
-                    pauseOnFocusLoss={false}
-                    draggable
-                    pauseOnHover
-                    theme='dark'
-                />
+                    {/* Info messages Toast Container */}
+                    <ToastContainer 
+                        position="bottom-right"
+                        autoClose={2500}
+                        hideProgressBar
+                        newestOnTop={false}
+                        closeOnClick
+                        rtl={false}
+                        pauseOnFocusLoss={false}
+                        draggable
+                        pauseOnHover
+                        theme='dark'
+                    />
+                </CartContextProvider>
             </BrowserRouter>
 
         </div>

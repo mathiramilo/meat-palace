@@ -38,9 +38,10 @@ Final Project of Coderhouse React JS Course
 
 ## **Tools**
 ### Languages
-* **HTML5**
-* **CSS3**
 * **Typescript**
+* **CSS3**
+* **HTML5**
+
 ### Frameworks
 * **React JS**
 ### Libraries

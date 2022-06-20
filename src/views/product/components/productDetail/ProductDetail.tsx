@@ -1,12 +1,12 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 // Router
 import { Link } from 'react-router-dom';
 // Interfaces
 import { Product } from 'interfaces/product';
 // Components
 import { ItemCount } from '../itemCount/ItemCount';
-// Toasts
-import { onAddToast } from 'utils/toasts';
+// Contexts
+import { CartContext } from 'contexts/CartContext';
 // Styles
 import './ProductDetail.css';
 
@@ -19,7 +19,12 @@ type props = {
 export const ProductDetail = ({ product }: props) => {
 
     // Product properties
-    const { name, price, description, img, category, cartAmount, stock } = product;
+    const { id, name, price, description, img, category, cartAmount, stock } = product;
+
+    const { addProduct, isInCart, getProduct } = useContext(CartContext);
+
+    // cartProduct is the product in the cart or null if it isn't in the cart.
+    const cartProduct = isInCart(id) ? getProduct(id) : null;
 
     // State that represents if the user has added the product to the cart and the amount.
     const [addedToCart, setAddedToCart] = useState({
@@ -33,7 +38,7 @@ export const ProductDetail = ({ product }: props) => {
             isAdded: true,
             amount: amount
         });
-        onAddToast(name, amount);
+        addProduct(product, amount);
     }
 
     return (
@@ -62,7 +67,7 @@ export const ProductDetail = ({ product }: props) => {
                                 </div>
                             </div>
                         : 
-                            <ItemCount stock={stock} initial={1} onAdd={onAdd} />
+                            <ItemCount stock={cartProduct !== null ? (cartProduct.stock - cartProduct.cartAmount) : stock} initial={1} onAdd={onAdd} />
                     }
                 </div>
             </div>

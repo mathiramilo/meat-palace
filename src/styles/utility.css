@@ -88,10 +88,33 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10em;
+    padding: 10em 2em;
 }
 
 .error-title {
     font-size: 1rem;
     font-weight: 300;
+    text-align: center;
+}
+
+.error-subtitle {
+    font-size: 0.75rem;
+    font-weight: 300;
+    margin-top: 0.2em;
+}
+
+.error-btn {
+    text-transform: uppercase;
+    color: #d6d6d6;
+    border: 1px solid #d6d6d6;
+    padding: 8px 14px;
+    border-radius: 4px;
+    margin-top: 0.4em;
+    overflow: hidden;
+    transition: all 0.3s ease-out;
+}
+
+.error-btn:hover {
+    background-color: #d6d6d6;
+    color: var(--black-75);
 }

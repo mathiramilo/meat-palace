@@ -1,0 +1,10 @@
+.cart {
+    padding: 2em;
+    margin-bottom: 4em;
+    margin-top: 1em;
+}
+
+.cart-main {
+    max-width: 1098px;
+    margin: auto;
+}

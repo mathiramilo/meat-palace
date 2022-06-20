@@ -21,3 +21,9 @@ added to the cart. */
 export const onAddToast = (name: string, amount: number) => toast.success(`x${amount} ${name} added to cart`, {
     className: 'toast-custom'
 })
+
+/* Error adding a product to the cart,
+no stock available. */
+export const noStockToast = (name: string) => toast.error(`No stock available (${name})`, {
+    className: 'toast-custom'
+})

@@ -43,12 +43,10 @@ export const ProductDetailContainer = () => {
     /* Gets the item and handle the component states */
     useEffect(() => {
         
-        /* getAllProducts caontains an array of 
-        all the products. */
-        const getAllProducts = getProducts();
-
-        getAllProducts.then((result) => {
-
+        /* getProducts() returns a promise that contains an 
+        array of all the products. */
+        getProducts().then((result) => {
+            
             /* If exists a product with id equal to
             productID => asign it to the product state, 
             otherwise => navigate to home. */

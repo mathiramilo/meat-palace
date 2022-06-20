@@ -21,7 +21,9 @@
 .cart-items-amount {
     position: absolute;
     bottom: 1px;
-    right: -14px;
+    right: -35px;
+    width: 30px;
     color: var(--white-75);
+    text-align: left;
     transition: all 0.3s ease-out;
 }

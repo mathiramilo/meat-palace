@@ -1,0 +1,12 @@
+.cart-resume {
+    margin-top: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+}
+
+@media (min-width: 598px) {
+    .cart-resume {
+        gap: 0;
+    }
+}

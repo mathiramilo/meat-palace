@@ -5,6 +5,7 @@ import { BillingCartResume } from './components/billingCartResume/BillingCartRes
 import { Category, Product } from 'interfaces/product.d';
 // Styles
 import './Billing.css';
+import { useEffect } from 'react';
 
 
 // Products array for testing the BillingCartResume component
@@ -56,6 +57,13 @@ const TEST_PRODUCTS: Product[] = [
 export const Billing = () => {
 
     // I have to code the form control and validation.
+
+
+    /* Scroll to top when the component
+    is rendered for the first time. */
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [])
 
     return (
         <div className="billing">
