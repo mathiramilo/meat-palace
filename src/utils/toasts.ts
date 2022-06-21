@@ -27,3 +27,8 @@ no stock available. */
 export const noStockToast = (name: string) => toast.error(`No stock available (${name})`, {
     className: 'toast-custom'
 })
+
+/* Empty cart toast. */
+export const emptyCartToast = () => toast.info('Your cart is empty, please add some products', {
+    className: 'toast-custom'
+})

@@ -23,6 +23,8 @@ export const CartContext = createContext<ICartContext>({
     products: [],
     expressShipping: false,
     setExpressShipping: () => {},
+    cardPayment: false,
+    setCardPayment: () => {},
     addProduct: () => {},
     quickAdd: () => {},
     increaseProduct: () => {},
@@ -49,6 +51,8 @@ export const CartContextProvider = ({ children }: props) => {
     /* This state is true if the user selects an express
     shipping or false for a standard shipping.  */
     const [expressShipping, setExpressShipping] = useState(false);
+
+    const [cardPayment, setCardPayment] = useState(false);
 
     /* This function adds an amount of a product to the cart. */
     const addProduct = (product: Product, amount: number) => {
@@ -179,7 +183,9 @@ export const CartContextProvider = ({ children }: props) => {
             value={{
                 products, 
                 expressShipping,
+                cardPayment,
                 setExpressShipping,
+                setCardPayment,
                 addProduct, 
                 quickAdd,
                 increaseProduct,

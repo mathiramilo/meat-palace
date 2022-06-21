@@ -4,6 +4,8 @@ export interface ICartContext {
     products: Product[];
     expressShipping: boolean;
     setExpressShipping: Dispatch<SetStateAction<boolean>>;
+    cardPayment: boolean;
+    setCardPayment: Dispatch<SetStateAction<boolean>>;
     addProduct: (product: Product, amount: number) => void;
     quickAdd: (product: Product) => void;
     increaseProduct: (id: number) => void;

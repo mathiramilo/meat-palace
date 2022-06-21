@@ -1,4 +1,6 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+// Logo
+import Logo from 'assets/img/logo/logo-white.png';
 // Router
 import { Link, useLocation } from 'react-router-dom';
 // Icons
@@ -17,6 +19,12 @@ import './Home.css';
 
 export const Home = () => {
     
+    /* Loading state for loading screen. */
+    const [loadingScreen, setLoadingScreen] = useState({
+        loading: true,
+        percentage: 0
+    });
+
     /* This useRef() hook creates a reference
     to about us section. */
     const aboutUs = useRef<HTMLElement>(null);
@@ -39,8 +47,43 @@ export const Home = () => {
 
     }, [location])
 
+    useEffect(() => {
+        let loadingInterval = setInterval(() => {
+            console.log('interval');
+            loadingScreen.percentage < 100 ? 
+                setLoadingScreen({
+                    ...loadingScreen,
+                    percentage: loadingScreen.percentage++
+                })
+            : 
+                setTimeout(() => {
+                    setLoadingScreen({
+                        ...loadingScreen,
+                        loading: false
+                    })
+                    clearInterval(loadingInterval);
+                }, 750)
+        }, 50);
+
+        setTimeout(() => {
+            setLoadingScreen({
+                ...loadingScreen,
+                percentage: 0
+            })
+        }, 500);
+    }, [])
+
     return (
-        <>
+        <>  
+            {/* Loading Screen */}
+            <div style={loadingScreen.loading ? {} : {opacity: '0', pointerEvents: 'none'}} className="home-loading">
+                <div className="home-loading-content">
+                    <img src={Logo} alt="Logo Meat Palace" />
+                    <span>{loadingScreen.percentage}%</span>   
+                </div>
+            </div>
+
+            {/* Home */}
             <div className="home">
 
                 {/* Hero Section */}

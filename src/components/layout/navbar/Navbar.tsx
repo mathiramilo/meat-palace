@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 // Router
 import { Link } from 'react-router-dom';
 // Toasts
-import { loginToast, signupToast, logoutToast } from 'utils/toasts';
+import { loginToast, signupToast, logoutToast, emptyCartToast } from 'utils/toasts';
 // Logo
 import logoWhite from 'assets/img/logo/logo-white.png';
 // Icons
@@ -18,11 +18,15 @@ import { UserInfo } from './components/userInfo/UserInfo';
 import { User } from 'interfaces/user';
 // Utilities
 import { isObjEmpty } from 'utils/emptyObject';
+// Contexts
+import { CartContext } from 'contexts/CartContext';
 // Styles
 import './NavBar.css';
 
 
 export const NavBar = () => {
+
+    const { cartLength } = useContext(CartContext);
 
     // State that represents if the hamburguer menu is open or not.
     const [hamburguerMenuOpen, sethamburguerMenuOpen] = useState<boolean>(false);
@@ -123,9 +127,19 @@ export const NavBar = () => {
 
 
                         {/* Cart Button */}
-                        <Link to='/cart'>
-                            <CartWidget />
-                        </Link>
+                        {cartLength() > 0 ?
+                            <Link to='/cart'>
+                                <CartWidget />
+                            </Link>
+                        :
+                            <button 
+                                style={{border: 'none', background: 'transparent'}}
+                                onClick={() => emptyCartToast()}
+                            >
+                                <CartWidget />
+                            </button>
+                        }
+                        
                     </nav>
                 </div>
             </header>
