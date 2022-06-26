@@ -21,6 +21,12 @@ export const Shop = () => {
         navigate(`/shop/${category}`);
     }
 
+    /* If the url param category isn't recognized => navigate to
+    /shop/all. */
+    useEffect(() => {
+        (category !== 'all' && category !== 'wagyu' && category !== 'feedlot' && category !== 'standard' && category !== 'other') && navigate('/shop/all');
+    }, [category, navigate])
+
     /* Scroll to top when the component
     is rendered for the first time. */
     useEffect(() => {
@@ -82,7 +88,7 @@ export const Shop = () => {
                 </div>
 
                 {/* Shop Catalog */}
-                <ItemListContainer category={category as string} limit={{hasLimit: false}} />
+                <ItemListContainer category={category as string} limit={false} />
 
             </section>
 

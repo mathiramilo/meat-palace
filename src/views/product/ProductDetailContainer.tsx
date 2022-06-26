@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+// Firebase
+import { doc, getDoc, getFirestore } from 'firebase/firestore';
 // Router
 import { Link, useNavigate, useParams } from 'react-router-dom';
 // Icons
@@ -9,7 +11,7 @@ import { ViewHeader } from 'components/common/viewHeader/ViewHeader';
 import { ProductDetail } from './components/productDetail/ProductDetail';
 import { Loader } from 'components/common/loader/Loader';
 // Services
-import { getProducts } from 'services/getProducts';
+
 // Interfaces
 import { Product } from 'interfaces/product';
 // Utils
@@ -42,16 +44,17 @@ export const ProductDetailContainer = () => {
 
     /* Gets the item and handle the component states */
     useEffect(() => {
-        
-        /* getProducts() returns a promise that contains an 
-        array of all the products. */
-        getProducts().then((result) => {
-            
+        const db = getFirestore();
+        const productRef = doc(db, 'products', productID as string); 
+
+        /* getDoc() returns a promise that contains the product
+        with id equal to productID if exists. */
+        getDoc(productRef).then(snapshot => {
             /* If exists a product with id equal to
             productID => asign it to the product state, 
             otherwise => navigate to home. */
-            result.find(product => product.id === parseInt(productID as string)) ?
-                setProduct(result.find(product => product.id === parseInt(productID as string)) as Product)
+            snapshot.exists() ?
+                setProduct({ id: snapshot.id, ...snapshot.data() } as Product)
             :
                 navigate('/')
         })

@@ -132,12 +132,9 @@ export const NavBar = () => {
                                 <CartWidget />
                             </Link>
                         :
-                            <button 
-                                style={{border: 'none', background: 'transparent'}}
-                                onClick={() => emptyCartToast()}
-                            >
+                            <div onClick={() => emptyCartToast()}>
                                 <CartWidget />
-                            </button>
+                            </div>
                         }
                         
                     </nav>

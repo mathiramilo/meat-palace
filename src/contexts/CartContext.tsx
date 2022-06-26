@@ -3,18 +3,18 @@ import { createContext, useEffect, useState } from 'react';
 import { onAddToast } from 'utils/toasts';
 import { noStockToast } from 'utils/toasts';
 // Interfaces
-import { Product, Category } from 'interfaces/product.d';
+import { Product } from 'interfaces/product.d';
 // Contexts
 import { ICartContext } from 'interfaces/cartContext';
 
 
 const DEFAULT_PRODUCT = {
-    id: 0,
+    id: 'customID0238920',
     name: 'Wagyu Tomahawk 1kg',
     price: 38.60,
     description: 'It is the product of the best Australian and Uruguayan Wagyu genetics, from cattle raised in the recognized natural grasslands of Uruguay, fattened and finished with special diets in Feedlot. It encompasses a product of the highest quality and consistency, which is exported from Uruguay to the most demanding markets in the world.',
     img: 'tomahawk-wagyu.jpg',
-    category: Category.Wagyu,
+    category: 'wagyu',
     cartAmount: 5,
     stock: 13
 }
@@ -114,7 +114,7 @@ export const CartContextProvider = ({ children }: props) => {
     }
 
     /* This function increases a product amount by 1. */
-    const increaseProduct = (id: number) => {
+    const increaseProduct = (id: string) => {
         let prod = getProduct(id);
         let index = products.indexOf(prod);
 
@@ -126,14 +126,14 @@ export const CartContextProvider = ({ children }: props) => {
     }
 
     /* This function removes a product from the cart. */
-    const removeProduct = (id: number) => {
+    const removeProduct = (id: string) => {
         const newProds = products.filter(product => product.id !== id);
         setProducts(newProds);
         setProductsSS(newProds);
     } 
 
     /* This function decreases a product amount by 1. */
-    const decreaseProduct = (id: number) => {
+    const decreaseProduct = (id: string) => {
         let prod = getProduct(id);
         let index = products.indexOf(prod);
 
@@ -151,10 +151,10 @@ export const CartContextProvider = ({ children }: props) => {
     };
 
     /* This function returns true if a product is in the cart. */
-    const isInCart = (id: number): boolean => products.some(product => product.id === id);
+    const isInCart = (id: string): boolean => products.some(product => product.id === id);
 
     /* This function returns the product with id equal to "id". */
-    const getProduct = (id: number): Product => products.find(product => product.id === id) as Product;
+    const getProduct = (id: string): Product => products.find(product => product.id === id) as Product;
 
     /* This Function returns the amount of items in the cart */
     const cartLength = (): number => products.reduce((acc, product) => acc += product.cartAmount, 0);

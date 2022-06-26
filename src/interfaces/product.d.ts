@@ -1,14 +1,11 @@
-// Definition of Product and Category Interface
-
-export enum Category {Wagyu = 'wagyu', Feedlot = 'feedlot', Standard = 'standard', Other = 'other'};
-
+// Definition of Product Interface.
 export interface Product {
-    id: number;
+    id: string;
     name: string;
     price: number;
     description: string;
     img: string;
-    category: Category;
+    category: string;
     cartAmount: number;
     stock: number;
 }

@@ -1,5 +1,3 @@
-// Interfaces
-import { Category } from 'interfaces/product';
 // Styles
 import './BillingProductCard.css';
 
@@ -7,7 +5,7 @@ type props = {
     name: string;
     price: number;
     img: string;
-    category: Category;
+    category: string;
     cartAmount: number;
 }
 

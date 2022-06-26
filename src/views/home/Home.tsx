@@ -47,9 +47,9 @@ export const Home = () => {
 
     }, [location])
 
+    /* Loading screen control. */
     useEffect(() => {
         let loadingInterval = setInterval(() => {
-            console.log('interval');
             loadingScreen.percentage < 100 ? 
                 setLoadingScreen({
                     ...loadingScreen,
@@ -103,7 +103,7 @@ export const Home = () => {
                     </div>
                     
                     {/* Bestsellers Products Wrapper */}
-                    <ItemListContainer category={'bestsellers'} limit={{hasLimit: true, value: 4}} />
+                    <ItemListContainer category={'bestsellers'} limit={true} />
                     
                     <Link className="button bs-btn" to='/shop/all'>View All Meats</Link>
 

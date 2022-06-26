@@ -1,27 +1,22 @@
 import React, { useEffect, useState } from 'react';
-// Import icons
+// Router
+import { useNavigate } from 'react-router-dom';
+// Firebase
+import { getFirestore, collection, getDocs, query, where } from 'firebase/firestore';
+// Icons
 import { ReactComponent as ErrorIcon } from 'assets/icons/error.svg';
-// Import components
+// Components
 import { Loader } from 'components/common/loader/Loader';
 import { ItemList } from './components/itemList/ItemList';
-// Import services
+// Interfaces
 import { Product } from 'interfaces/product';
-import { getProducts } from 'services/getProducts';
-// Import styles
+// Styles
 import './ItemListContainer.css';
 
 
-/* ItemListContainer recibes by props a
-Limit object that specifies if there is
-a limit of products to by shown and his value. */
-interface Limit {
-    hasLimit: boolean;
-    value?: number;
-}
-
 type props = {
     category: string;
-    limit: Limit;
+    limit: boolean;
 }
 
 /* This component shows all the products . */
@@ -36,6 +31,8 @@ export const ItemListContainer = ({ category, limit }: props) => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(false);
 
+    const navigate = useNavigate();
+
     useEffect(() => {
 
         /* Reset the products to an empty
@@ -43,35 +40,36 @@ export const ItemListContainer = ({ category, limit }: props) => {
         setProducts([]);
         setLoading(true);
 
-        /* getProducts() returns a promise that will be
-        resolved in 2 seconds and the result is an array with
-        the products to be shown. */
-        const getAllProducts = getProducts();
+        /* Database */
+        const db = getFirestore();
+        const productsCollection = collection(db, 'products');
 
-        /* Handle the promise */
-        getAllProducts.then((result) => {
-
-            /* If there is a limit => return only
-            the amount of products as limit indicates.
-            Otherwise => return the products of the category
-            indicated by props. */
-            if (limit.hasLimit) { 
-                setProducts(result.filter(product => product.id < 4));
-            } else {
-                category === 'all' ?
-                    setProducts(result)
-                :
-                    setProducts(result.filter(product => product.category === category));
-            }  
-        })
-        .catch((error) => {
-            setError(true);
-        })
-        .finally(() => {
-            setLoading(false);
-        })
+        if (limit) {
+            /* 4 products */
+            const q = query(
+                productsCollection,
+                where('category', '==', 'wagyu')
+            )
+            getDocs(q).then(snapshot => setProducts(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })).filter(({ name }: any) => name === 'Wagyu Tomahawk 1kg' || name === 'Wagyu Ribeye 1kg' || name === 'Wagyu Outside Skirt 1kg' || name === 'Wagyu Short Ribs 1kg') as Product[]))
+            .catch(err => setError(true))
+            .finally(() => setLoading(false));
+        } else if (category === 'all') {
+            /* Category All => all products */
+            getDocs(productsCollection).then(snapshot => setProducts(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Product[]))
+            .catch(err => setError(true))
+            .finally(() => setLoading(false));
+        } else {
+            /* Filter by category */
+            const q2 = query(
+                productsCollection,
+                where('category', '==', category)
+            )
+            getDocs(q2).then(snapshot => setProducts(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Product[]))
+            .catch(err => setError(true))
+            .finally(() => setLoading(false));
+        }
     
-    }, [category, limit.hasLimit])
+    }, [category, limit]);
 
     return (
         <>

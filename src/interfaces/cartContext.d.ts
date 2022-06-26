@@ -8,12 +8,12 @@ export interface ICartContext {
     setCardPayment: Dispatch<SetStateAction<boolean>>;
     addProduct: (product: Product, amount: number) => void;
     quickAdd: (product: Product) => void;
-    increaseProduct: (id: number) => void;
-    removeProduct: (id: number) => void;
-    decreaseProduct: (id: number) => void;
+    increaseProduct: (id: string) => void;
+    removeProduct: (id: string) => void;
+    decreaseProduct: (id: string) => void;
     clear: () => void;
-    isInCart: (id: number) => boolean;
-    getProduct: (id: number) => Product;
+    isInCart: (id: string) => boolean;
+    getProduct: (id: string) => Product;
     cartLength: () => number;
     getSubtotal: () => number;
     getTotal: () => number;
