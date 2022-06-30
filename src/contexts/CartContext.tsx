@@ -70,7 +70,7 @@ export const CartContextProvider = ({ children }: props) => {
             productsCopy[index].cartAmount += amount;
 
             setProducts(productsCopy);
-            setProductsSS(productsCopy);
+            setProductsLS(productsCopy);
         } else {
             /* Product isn't on the cart => creates a new product with cartAmount = amount and add new product to the products array. */
             const newProduct = {
@@ -79,7 +79,7 @@ export const CartContextProvider = ({ children }: props) => {
             }
             setProducts([...products, newProduct]);
             /* Update cart in session storage. */
-            setProductsSS([...products, newProduct]);
+            setProductsLS([...products, newProduct]);
         }
         /* Display a toast. */
         onAddToast(product.name, amount);
@@ -95,7 +95,7 @@ export const CartContextProvider = ({ children }: props) => {
                 let productsCopy = [...products];
                 productsCopy[index].cartAmount++;
                 setProducts(productsCopy);
-                setProductsSS(productsCopy);
+                setProductsLS(productsCopy);
 
                 onAddToast(product.name, 1);
             } else noStockToast(product.name);
@@ -106,7 +106,7 @@ export const CartContextProvider = ({ children }: props) => {
                     cartAmount: 1
                 }
                 setProducts([...products, newProduct]);
-                setProductsSS([...products, newProduct]);
+                setProductsLS([...products, newProduct]);
 
                 onAddToast(product.name, 1);
             } else noStockToast(product.name);
@@ -122,14 +122,14 @@ export const CartContextProvider = ({ children }: props) => {
         productsCopy[index].cartAmount++;
 
         setProducts(productsCopy);
-        setProductsSS(productsCopy);
+        setProductsLS(productsCopy);
     }
 
     /* This function removes a product from the cart. */
     const removeProduct = (id: string) => {
         const newProds = products.filter(product => product.id !== id);
         setProducts(newProds);
-        setProductsSS(newProds);
+        setProductsLS(newProds);
     } 
 
     /* This function decreases a product amount by 1. */
@@ -141,13 +141,13 @@ export const CartContextProvider = ({ children }: props) => {
         productsCopy[index].cartAmount--;
 
         setProducts(productsCopy);
-        setProductsSS(productsCopy);
+        setProductsLS(productsCopy);
     }
 
     /* This function removes all products from the cart, leaving it empty. */
     const clear = () => {
         setProducts([]);
-        setProductsSS([]);
+        setProductsLS([]);
     };
 
     /* This function returns true if a product is in the cart. */
@@ -169,14 +169,14 @@ export const CartContextProvider = ({ children }: props) => {
     const getTotal = (): number => getSubtotal()*1.22 + shippingPrice();
 
     /* This function updates the session storage. */
-    const setProductsSS = (products: Product[]) => sessionStorage.setItem('cart', JSON.stringify(products));
+    const setProductsLS = (products: Product[]) => localStorage.setItem('cart', JSON.stringify(products));
 
     /* This function fetchs the cart from session storage. */
-    const getProductsSS = (): Product[] => JSON.parse(sessionStorage.getItem('cart') || '[]');
+    const getProductsLS = (): Product[] => JSON.parse(localStorage.getItem('cart') || '[]');
 
     /* Every time the products state change set the cart
     of the session storage equals to products. */
-    useEffect(() => setProducts(getProductsSS()), []);
+    useEffect(() => setProducts(getProductsLS()), []);
 
     return (
         <CartContext.Provider 

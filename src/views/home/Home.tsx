@@ -13,6 +13,8 @@ import breadsImg from 'assets/img/others/breads.webp';
 import aboutUsImg from 'assets/img/others/aside.webp';
 // Components
 import { ItemListContainer } from 'components/common/itemListContainer/ItemListContainer';
+// Utils
+import { isIOS } from 'utils/isIOS';
 // Styles
 import './Home.css';
 
@@ -63,7 +65,7 @@ export const Home = () => {
                     })
                     clearInterval(loadingInterval);
                 }, 750)
-        }, 50);
+        }, 35);
 
         setTimeout(() => {
             setLoadingScreen({
@@ -87,7 +89,15 @@ export const Home = () => {
             <div className="home">
 
                 {/* Hero Section */}
-                <section className="hero-section">
+                <section 
+                    style={
+                        isIOS() ? 
+                            {backgroundAttachment: 'initial'}   
+                        :
+                            {}
+                    }
+                    className="hero-section"
+                >
                     <div className="hs-greeting">
                         <h1>The best place to buy your meats</h1>
                         <Link className="button hsg-search-meats-btn" to='/shop/all'>Search Meats</Link>    

@@ -1,0 +1,213 @@
+.order-modal-container {
+    position: fixed;
+    height: 101vh;
+    width: 100%;
+    background-color: #000000bd;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -5.8em;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease-out;
+}
+
+.order-modal {
+    width: 90%;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: scroll;
+    background-color: #1F1F1F;
+    padding: 2em;
+    border-radius: 3px;
+    transform: translateY(-50vh);
+    transition: all 0.3s ease-out;
+}
+
+.om-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    margin-bottom: 3.8em;
+}
+
+.om-header .order-received-icon {
+    width: 32px;
+    color: #4FDF77;
+}
+
+.om-header h3 {
+    text-transform: uppercase;
+    color: var(--white-50);
+    font-weight: 300;
+    font-size: 1.45rem;
+}
+
+.om-main {
+    display: grid;
+    grid-template-columns: 100%;
+    gap: 4em;
+    margin-bottom: 4em;
+}
+
+.omm-data {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.ommd-title {
+    text-transform: uppercase;
+    color: var(--white-50);
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.ommd-item-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2em;
+}
+
+.ommd-item {
+    display: flex;
+    align-items: center;
+    gap: 0.8em;
+}
+
+.ommdi-icon {
+    width: 20px;
+    color: #E41E1E;
+}
+
+.ommd-item span {
+    color: var(--white-50);
+    font-size: 0.8em;
+}
+
+.ommd-item-country {
+    text-transform: capitalize;
+    font-size: 0.8rem !important;
+}
+
+.omm-order {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.ommo-title {
+    text-transform: uppercase;
+    color: var(--white-50);
+    font-weight: 300;
+    font-size: 1rem;
+}
+
+.ommo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+    background-color: #171717;
+    padding: 1.5em;
+    overflow-y: scroll;
+    max-height: 300px;
+    min-height: 240px;
+    border-radius: 2px;
+}
+
+.ommo-item {
+    color: var(--white-50);
+    font-size: 0.8rem;
+}
+
+.om-finish {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2em;
+}
+
+.omf-order-idd {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+}
+
+.omf-order-idd span {
+    color: var(--white-50);
+    font-size: 0.95rem;
+}
+
+.omf-order-idd span strong {
+    text-transform: uppercase;
+    font-weight: 300;
+    margin-right: 2px;
+}
+
+.download-order-btn {
+    border: none;
+    background-color: transparent;
+}
+
+.download-order-btn .download-icon {
+    width: 26px;
+    color:#616161;
+    transition: all 0.3s ease-out;
+}
+
+.download-order-btn:hover .download-icon {
+    color: #E41E1E;
+}
+
+.omf-return-home-btn {
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.om-logo {
+    margin-top: 4em;
+}
+
+.om-logo img {
+    width: 85px;
+    display: block;
+    margin: auto;
+}
+
+@media (min-width: 792px) {
+    .order-modal {
+        padding: 2em 3em;
+    }
+
+    .om-main {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2em;
+        margin-bottom: 5em;
+    }
+
+    .ommo-container {
+        max-height: 260px;
+        min-height: 260px;
+    }
+
+    .omf-return-home-btn {
+        max-width: 280px;
+    }
+
+    .om-logo {
+        margin-top: 3em;
+    }
+}
+
+@media (min-width: 1024px) {
+    .order-modal {
+        padding: 2em 4em;
+    }
+
+    .om-header {
+        margin-bottom: 5em;
+    }
+}
