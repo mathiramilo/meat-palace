@@ -25,7 +25,7 @@ export const Cart = () => {
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
-        }, 1000)
+        }, 500)
     }, [])
     
     /* Scroll to top when the component

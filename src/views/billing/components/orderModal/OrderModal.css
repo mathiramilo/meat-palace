@@ -122,6 +122,15 @@
     font-size: 0.8rem;
 }
 
+.ommo-total {
+    color: var(--white-50);
+    text-transform: uppercase;
+    font-size: 0.96rem;
+    align-self: flex-end;
+    margin-right: 0.6em;
+    margin-top: -0.8em;
+}
+
 .om-finish {
     display: flex;
     flex-direction: column;

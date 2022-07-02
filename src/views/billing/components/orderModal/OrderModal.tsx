@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 // Router
 import { Link } from 'react-router-dom';
 // Logo
@@ -32,10 +32,11 @@ type props = {
     data: OrderData;
     id: string;
     products: Product[];
+    total: number;
     isOpen: boolean;
 }
 
-export const OrderModal = ({ data, id, products, isOpen }: props) => {
+export const OrderModal = ({ data, id, products, total, isOpen }: props) => {
 
     // Data destructuring.
     const { name, lastname, country, city, direction, postalCode, phone } = data;
@@ -105,6 +106,7 @@ export const OrderModal = ({ data, id, products, isOpen }: props) => {
                                 <span className="ommo-item">{`${prod.cartAmount}x ${prod.name}`}</span>
                             ))}
                         </div>
+                        <span className="ommo-total">Total: US$ {total.toFixed(2)}</span>
                     </div>
                 </div>
 

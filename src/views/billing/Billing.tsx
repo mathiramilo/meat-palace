@@ -38,6 +38,9 @@ export const Billing = () => {
     /* State that represents the order products list. */
     const [productsOrdered, setProductsOrdered] = useState<Product[]>([]);
 
+    /* State that represents the total price of the products ordered. */
+    const [productsOrderedTotal, setProductsOrderedTotal] = useState<number>(0);
+
     /* State that represents if the order modal is open. */
     const [orderModalOpen, setOrderModalOpen] = useState<boolean>(false);
 
@@ -126,6 +129,7 @@ export const Billing = () => {
                         setOrderReceived(true);
                         sendOrder();
                         setProductsOrdered(products);
+                        setProductsOrderedTotal(getTotal());
 
                         clear();
                         resetErrors();
@@ -167,7 +171,7 @@ export const Billing = () => {
     return (
         <>  
             {/* Order Modal */}
-            <OrderModal data={{name, lastname, country, city, direction, postalCode, phone}} id={orderId} products={productsOrdered} isOpen={orderModalOpen} />
+            <OrderModal data={{name, lastname, country, city, direction, postalCode, phone}} id={orderId} products={productsOrdered} total={productsOrderedTotal} isOpen={orderModalOpen} />
 
             <div className="billing">
                 <ViewHeader title={'Finish Buying'} />
