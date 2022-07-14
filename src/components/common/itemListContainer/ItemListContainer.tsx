@@ -55,7 +55,13 @@ export const ItemListContainer = ({ category, limit }: props) => {
             .finally(() => setLoading(false));
         } else if (category === 'all') {
             /* Category All => all products */
-            getDocs(productsCollection).then(snapshot => setProducts(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Product[]))
+            getDocs(productsCollection).then(snapshot => {
+                /* allProducts is an array with all the products */
+                const allProducts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Product[];
+                /* allMeats is an array with all meats */
+                const allMeats = allProducts.filter(prod => prod.category !== 'other');
+                setProducts(allMeats);
+            })
             .catch(err => setError(true))
             .finally(() => setLoading(false));
         } else {

@@ -13,6 +13,8 @@ import { ReactComponent as CityIcon } from 'assets/icons/city.svg';
 import { ReactComponent as AddressIcon } from 'assets/icons/address.svg';
 import { ReactComponent as PostalIcon } from 'assets/icons/postal.svg';
 import { ReactComponent as DownloadIcon } from 'assets/icons/download.svg';
+// Hooks
+import { useAuth } from 'hooks/useAuth';
 // Interfaces
 import { Product } from 'interfaces/product';
 // Styles
@@ -41,11 +43,11 @@ export const OrderModal = ({ data, id, products, total, isOpen }: props) => {
     // Data destructuring.
     const { name, lastname, country, city, direction, postalCode, phone } = data;
 
+    // Gets the logged user.
+    const { user } = useAuth(); 
+
     // function that returns the fullname of the user.
     const getFullname = (first: string, last: string): string => `${first} ${last}`; 
-
-    // i have to get the email form auth context.
-    const email = 'example@example.com';
 
     return (
         <div
@@ -75,7 +77,7 @@ export const OrderModal = ({ data, id, products, total, isOpen }: props) => {
                             </div>
                             <div className="ommd-item">
                                 <EmailIcon className="ommdi-icon" />
-                                <span>Email: {email}</span>
+                                <span>Email: {user?.email}</span>
                             </div>
                             <div className="ommd-item">
                                 <PhoneIcon className="ommdi-icon" />
@@ -103,7 +105,7 @@ export const OrderModal = ({ data, id, products, total, isOpen }: props) => {
                         <h6 className="ommo-title">Your Order</h6>
                         <div className="ommo-container">
                             {products.map((prod: Product) => (
-                                <span className="ommo-item">{`${prod.cartAmount}x ${prod.name}`}</span>
+                                <span key={prod.id} className="ommo-item">{`${prod.cartAmount}x ${prod.name}`}</span>
                             ))}
                         </div>
                         <span className="ommo-total">Total: US$ {total.toFixed(2)}</span>

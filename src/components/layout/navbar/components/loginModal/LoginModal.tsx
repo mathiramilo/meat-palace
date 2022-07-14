@@ -1,22 +1,21 @@
 // Images
 import loginImage from 'assets/img/others/login.webp';
+import { LSModalContext } from 'contexts/LSModalContext';
 // Hooks
 import { useLSModal } from 'hooks/useLSModal';
+import { useContext } from 'react';
 // Styles
 import './LoginModal.css';
 
-type props = {
-    isOpen: boolean;
-    login: (email: string, password: string) => void;
-    signup: (email: string, password: string) => void;
-    closeModal: () => void;
-}
 
-export const LoginModal = ({ isOpen, login, signup, closeModal }: props) => {
+export const LoginModal = () => {
     
+    /* LS Modal Context. */
+    const { isOpen, closeModal } = useContext(LSModalContext);
+
     /* Obtain all the necesary states and functions from
     the hook useLSForm(). */
-    const { handleModalClose, formValidation, isLogin, setIsLogin, errors, resetErrors, email, setEmail, password, setPassword, repeatPassword, setRepeatPassword } = useLSModal({closeModal, login, signup});
+    const { handleModalClose, formValidation, isLogin, setIsLogin, errors, resetErrors, email, setEmail, password, setPassword, repeatPassword, setRepeatPassword } = useLSModal();
 
     return (
         <>

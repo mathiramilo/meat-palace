@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 // Router
 import { Link } from 'react-router-dom';
 // Toasts
-import { loginToast, signupToast, logoutToast } from 'utils/toasts';
+import { logoutToast } from 'utils/toasts';
 // Logo
 import logoWhite from 'assets/img/logo/logo-white.png';
 // Icons
@@ -14,12 +14,11 @@ import { HamburguerMenuCanvas } from './components/HamburguerMenuCanvas/Hamburgu
 import { LoginModal } from './components/loginModal/LoginModal';
 import { CartWidget } from './components/cartWidget/CartWidget';
 import { UserInfo } from './components/userInfo/UserInfo';
-// Interfaces
-import { User } from 'interfaces/user';
-// Utilities
-import { isObjEmpty } from 'utils/emptyObject';
+// Auth
+import { useAuth } from 'hooks/useAuth';
 // Styles
 import './NavBar.css';
+import { LSModalContext } from 'contexts/LSModalContext';
 
 
 export const NavBar = () => {
@@ -29,10 +28,8 @@ export const NavBar = () => {
     const openHamburguerMenu = () => sethamburguerMenuOpen(true);
     const closeHamburguerMenu = () => sethamburguerMenuOpen(false);
 
-    // State that represents if the login modal is open or not.
-    const [loginModalOpen, setLoginModalOpen] = useState<boolean>(false);
-    const openLoginModal = () => setLoginModalOpen(true);
-    const closeLoginModal = () => setLoginModalOpen(false);
+    // Function openModal() from LSModalContext.
+    const { openModal } = useContext(LSModalContext);
 
     // State that represents if the user info modal is open or not.
     const [userInfoOpen, setUserInfoOpen] = useState<boolean>(false);
@@ -41,29 +38,15 @@ export const NavBar = () => {
 
     /* Login/Signup */
 
-    // State that represents the logged user.
-    const [loggedUser, setLoggedUser] = useState<User>({} as User);
-
-    // login() sets the logged user and closes the modal.
-    const login = (email: string, password: string) => {
-        setLoggedUser({ email: email, password: password });
-        closeLoginModal();
-        loginToast(email);
-    };
+    // Get the user from AuthContext
+    const { user, logout } = useAuth();
 
     // logout() sets an empty user as logged user and closes de user info.
-    const logout = () => {
-        setLoggedUser({} as User);
+    const handleLogout = () => {
+        logout();
         closeUserInfo();
         logoutToast();
     };
-
-    // signup() sets the logged user and registrates him in the database.
-    const signup = (email: string, password: string) => {
-        setLoggedUser({ email: email, password: password });
-        closeLoginModal();
-        signupToast(email);
-    }
     
     return (
         <>
@@ -71,7 +54,7 @@ export const NavBar = () => {
             <HamburguerMenuCanvas hamburguerMenuOpen={hamburguerMenuOpen} closeHamburguerMenu={closeHamburguerMenu} />
 
             {/* Login and Register Modal */}
-            <LoginModal isOpen={loginModalOpen} login={login} signup={signup} closeModal={closeLoginModal} />
+            <LoginModal />
 
             {/* Navbar */}
             <header className="navbar">
@@ -101,7 +84,7 @@ export const NavBar = () => {
                         {/* If there is a logged user => show the user button
                             Otherwise => show the login button */}
 
-                        { !isObjEmpty(loggedUser) ?
+                        { user ?
                                 // User Button
                                 <div>
                                     <button className="user-btn" onClick={ () => toggleUserInfo() }>
@@ -109,14 +92,14 @@ export const NavBar = () => {
                                     </button>
                                     <UserInfo 
                                         isOpen={userInfoOpen} 
-                                        email={loggedUser.email} logout={logout} closeUserInfo={closeUserInfo} 
+                                        email={user.email} logout={handleLogout} closeUserInfo={closeUserInfo} 
                                     />
                                 </div>
                                 :
                                 // Login Button
                                 <button 
                                     className="navbar-link login-btn" 
-                                    onClick={ () => openLoginModal() }
+                                    onClick={ () => openModal() }
                                 >
                                     <LoginIcon className="login-icon" />
                                 </button> }

@@ -32,3 +32,8 @@ export const noStockToast = (name: string) => toast.error(`No stock available ($
 export const emptyCartToast = () => toast.info('Your cart is empty, please add some products', {
     className: 'toast-custom'
 })
+
+/* Not logged in toast. */
+export const mustLoginToast = () => toast.error('You must be logged in to checkout', {
+    className: 'toast-custom'
+})

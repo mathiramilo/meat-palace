@@ -1,12 +1,16 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+// Hooks
+import { useAuth } from './useAuth';
+// Toasts
+import { loginToast, signupToast } from 'utils/toasts';
+// Contexts
+import { LSModalContext } from 'contexts/LSModalContext';
 
-type params = {
-    closeModal: () => void;
-    login: (email: string, password: string) => void;
-    signup: (email: string, password: string) => void;
-}
 
-export const useLSModal = ({ closeModal, login, signup }: params) => {
+export const useLSModal = () => {
+
+    const { signup, login } = useAuth();
+    const { closeModal } = useContext(LSModalContext);
 
     // State that represents if the modal is for login or sign up.
     const [isLogin, setIsLogin] = useState<boolean>(true);
@@ -44,6 +48,42 @@ export const useLSModal = ({ closeModal, login, signup }: params) => {
     // Function that resets the errors.
     const resetErrors = () => setErrors({ email: '', password: '', repeatPassword: '' });
 
+    const handleLogin = async (email: string, password: string) => {
+        try {
+            // Login, reset the form & close modal.
+            await login(email, password);
+            resetInputs();
+            resetErrors();
+            closeModal();
+            loginToast(email);
+        } catch (error) {
+            // Wrong Email/Password combination, email has not been registered or any other error.
+            setErrors({
+                ...errors,
+                email: 'Email/Password incorrect',
+                password: 'Email/Password incorrect'
+            });
+        }
+    }
+
+    const handleSignup = async (email: string, password: string) => {
+        try {
+            await signup(email, password);
+            setIsLogin(true);
+            resetInputs();
+            resetErrors();
+            closeModal();
+            signupToast(email);
+        } catch (error) {
+            setErrors({
+                ...errors,
+                email: 'Email not valid, try another',
+                password: '',
+                repeatPassword: ''
+            });
+        }
+    }
+
     // Function that validates the login and signup form.
     const formValidation = (evt: React.FormEvent<HTMLFormElement>) => {
         evt.preventDefault();
@@ -53,19 +93,7 @@ export const useLSModal = ({ closeModal, login, signup }: params) => {
             // Email and Password not empty.
             if (email !== '' && password !== '') {
                 // Verifies if email and password combination is correct.
-                if (email === 'mathiramilo2290@gmail.com' && password === '12345678') {
-                    // Login and reset the form.
-                    login(email, password);
-                    resetInputs(); 
-                    resetErrors();
-                } else {
-                    // Wrong Email/Password combination.
-                    setErrors({
-                        ...errors,
-                        email: 'Email/Password incorrect',
-                        password: 'Email/Password incorrect'
-                    });
-                } 
+                handleLogin(email, password);
 
             } else {
                 // Email or Password Empty.
@@ -84,10 +112,7 @@ export const useLSModal = ({ closeModal, login, signup }: params) => {
             // The data entered by the user satisfies all the requirements.
             if (email !== '' && password !== '' && repeatPassword !== '' && password.length > 6 && password.match(/\d/) && password === repeatPassword) {
 
-                signup(email, password);
-                setIsLogin(true);
-                resetInputs();
-                resetErrors();
+                handleSignup(email, password);
 
             } else {
 

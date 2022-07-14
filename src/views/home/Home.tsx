@@ -65,7 +65,7 @@ export const Home = () => {
                     })
                     clearInterval(loadingInterval);
                 }, 750)
-        }, 35);
+        }, 20);
 
         setTimeout(() => {
             setLoadingScreen({

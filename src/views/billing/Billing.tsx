@@ -1,10 +1,14 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+// Router
+import { useNavigate } from 'react-router-dom';
 // Firebase
 import { addDoc, collection, getFirestore } from 'firebase/firestore';
 // Components
 import { ViewHeader } from 'components/common/viewHeader/ViewHeader';
 import { BillingCartResume } from './components/billingCartResume/BillingCartResume';
 import { OrderModal } from './components/orderModal/OrderModal';
+// Hooks
+import { useAuth } from 'hooks/useAuth';
 // Contexts
 import { CartContext } from 'contexts/CartContext';
 // Utils
@@ -18,7 +22,11 @@ import './Billing.css';
 // This view component must get the cart info in order to display the products that the user is going to buy.
 export const Billing = () => {
 
-    const { products, expressShipping, cardPayment, setExpressShipping, setCardPayment, clear, getSubtotal, getTotal } = useContext(CartContext);
+    const { products, expressShipping, cardPayment, setExpressShipping, setCardPayment, clear, getSubtotal, getTotal, cartLength } = useContext(CartContext);
+
+    const { user } = useAuth();
+
+    const navigate = useNavigate();
 
     // States that represents the actual inputs of the form.
     const [name, setName] = useState<string>('');
@@ -81,6 +89,9 @@ export const Billing = () => {
     const formValidation = (evt: React.FormEvent<HTMLFormElement>) => {
         evt.preventDefault();
 
+        // If the cart is empty return.
+        if (cartLength() <= 0) return;
+
         // if there is an empty input => error(all fields are required).
         if (name === '' || lastname === '' || country === '' || city === '' || direction === '' || postalCode === '' || phone === '') {
             setErrors({
@@ -110,14 +121,14 @@ export const Billing = () => {
                 window.scrollTo(0, 0);
             } else {
                 // Name, lastname, city, postalCode and phone length.
-                if (name.length < 2 || lastname.length < 2 || city.length < 2 || postalCode.length !== 5 || phone.length < 6) {
+                if (name.length < 2 || lastname.length < 2 || city.length < 2 || postalCode.length <= 2 || postalCode.length >= 9 || phone.length < 6) {
                     setErrors({
                         name: name.length < 2 ? 'Too short' : '',
                         lastname: lastname.length < 2 ? 'Too short' : '',
                         country: '',
                         city: city.length < 2 ? 'Too short' : '',
                         direction: '',
-                        postalCode: postalCode.length !== 5 ? 'Postal code must have 5 digits' : '',
+                        postalCode: (postalCode.length <= 2 || postalCode.length >= 9) ? 'Invalid postal code' : '',
                         phone: phone.length < 6 ? 'Too short' : '',
                     })
                     window.scrollTo(0, 0);
@@ -142,7 +153,7 @@ export const Billing = () => {
     /* Create the object order and add it to firestore orders collection. */
     const sendOrder = () => {
         const order = {
-            buyer: { fullname: getFullname(name, lastname), email: 'example@example.com', phone, country, city, direction, postalCode },
+            buyer: { fullname: getFullname(name, lastname), email: user?.email, phone, country, city, direction, postalCode },
             products: products.map(({ id, name, price, cartAmount }) => ({
                 id,
                 name,
@@ -163,10 +174,13 @@ export const Billing = () => {
     const getFullname = (first: string, last: string): string => `${first} ${last}`; 
 
     /* Scroll to top when the component
-    is rendered for the first time. */
+    is rendered for the first time & validation. */
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [])
+
+        cartLength() <= 0 && navigate('/');
+        !user && navigate('/');
+    }, [user])
 
     return (
         <>  
@@ -174,7 +188,7 @@ export const Billing = () => {
             <OrderModal data={{name, lastname, country, city, direction, postalCode, phone}} id={orderId} products={productsOrdered} total={productsOrderedTotal} isOpen={orderModalOpen} />
 
             <div className="billing">
-                <ViewHeader title={'Finish Buying'} />
+                <ViewHeader title={'Checkout'} />
 
                 {/* Main grid */}
                 <form 
@@ -446,8 +460,8 @@ export const Billing = () => {
                             </div>
                         </div>
 
-                        {/* Finish Order Button */}
-                        <input type="submit" value="Finish Order" className="button finish-order-btn" />
+                        {/* Checkout Button */}
+                        <input type="submit" value="Checkout" className="button finish-order-btn" />
                     </div>
 
                 </form>

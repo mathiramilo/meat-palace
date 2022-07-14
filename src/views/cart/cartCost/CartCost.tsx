@@ -1,14 +1,28 @@
 import React, { useContext } from 'react';
 // Router
 import { Link } from 'react-router-dom';
+// Hooks
+import { useAuth } from 'hooks/useAuth';
 // Contexts
 import { CartContext } from 'contexts/CartContext';
+import { LSModalContext } from 'contexts/LSModalContext';
+// Toasts
+import { mustLoginToast } from 'utils/toasts';
 // Styles
 import './CartCost.css';
 
 export const CartCost = () => {
 
+    const { user } = useAuth();
+
     const { expressShipping, setExpressShipping, getSubtotal, getTotal } = useContext(CartContext);
+
+    const { openModal } = useContext(LSModalContext);
+
+    const handleNotLoggedIn = () => {
+        openModal();
+        mustLoginToast();
+    }
 
     return (
         <section className="cart-cost">
@@ -52,7 +66,13 @@ export const CartCost = () => {
                 </div>
             </div>
 
-            <Link to='/billing' className="button cc-finish-buying-btn">Finish Buying</Link>
+            {user ?
+                <Link to='/billing' className="button cc-finish-buying-btn">Finish Buying</Link>
+            :
+                <button onClick={() => handleNotLoggedIn()} className="button cc-finish-buying-btn" style={{fontSize: '1rem'}}>Finish Buying</button>    
+            }
+
+            
         </section>
     )
 }

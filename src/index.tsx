@@ -2,9 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from 'App';
 import reportWebVitals from 'misc/reportWebVitals';
+// Router
+import { BrowserRouter } from 'react-router-dom';
+// Contexts
+import { AuthContextProvider } from 'contexts/AuthContext';
+import { CartContextProvider } from 'contexts/CartContext';
+import { LSModalContextProvider } from 'contexts/LSModalContext';
 
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -19,14 +26,23 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-initializeApp(firebaseConfig);
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
 
 const root = ReactDOM.createRoot(
     document.getElementById('root') as HTMLElement
 );
 root.render(
     <React.StrictMode>
-        <App />
+        <BrowserRouter>
+            <AuthContextProvider>
+                <CartContextProvider>
+                    <LSModalContextProvider>
+                        <App />
+                    </LSModalContextProvider>
+                </CartContextProvider>
+            </AuthContextProvider>
+        </BrowserRouter>
     </React.StrictMode>
 );
 

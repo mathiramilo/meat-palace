@@ -168,14 +168,14 @@ export const CartContextProvider = ({ children }: props) => {
     /* This function returns the total cost of the cart. */
     const getTotal = (): number => getSubtotal()*1.22 + shippingPrice();
 
-    /* This function updates the session storage. */
+    /* This function updates the local storage. */
     const setProductsLS = (products: Product[]) => localStorage.setItem('cart', JSON.stringify(products));
 
-    /* This function fetchs the cart from session storage. */
+    /* This function fetchs the cart from local storage. */
     const getProductsLS = (): Product[] => JSON.parse(localStorage.getItem('cart') || '[]');
 
     /* Every time the products state change set the cart
-    of the session storage equals to products. */
+    of the local storage equals to products. */
     useEffect(() => setProducts(getProductsLS()), []);
 
     return (
