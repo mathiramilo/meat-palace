@@ -10,6 +10,7 @@
 ## **Navigation Flow**
 ![Navigation Flow](/readme/design/navigation.gif)
 
+
 ## **Design**
 To obtain this great result, I designed each page and each element of this website in a complete and detailed way. To carry out this task I use **Figma**.
 
@@ -48,9 +49,10 @@ Final Project of Coderhouse React JS Course
 ### Frameworks
 * **React JS**
 ### Libraries
-* **React Toastify**
+* **React Toastify** (Used to obtain a better communication with the user through the notification of certain actions, give information or alert errors)
+
 ### Others
-* **Firebase**
+* **Firebase** (Used for persistance and authentication)
 
 ## **Contact**
 * [**GitHub**](https://github.com/mathiramilo)
