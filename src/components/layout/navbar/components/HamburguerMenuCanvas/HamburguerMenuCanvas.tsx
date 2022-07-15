@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 // Import icons
 import { ReactComponent as CloseIcon } from 'assets/icons/x.svg';
+import { ReactComponent as GoBackIcon } from 'assets/icons/arrow-left.svg';
 // Import styles
 import './HamburguerMenuCanvas.css';
 
@@ -12,6 +13,8 @@ type props = {
 }
 
 export const HamburguerMenuCanvas = ({ hamburguerMenuOpen, closeHamburguerMenu }: props) => {
+
+    const [viewCategories, setViewCategories] = useState<boolean>(false);
 
     return (
         // Hamburguer Menu Canvas
@@ -31,16 +34,55 @@ export const HamburguerMenuCanvas = ({ hamburguerMenuOpen, closeHamburguerMenu }
                 }
             }
         >
+            
+            {/* Go Back Button */}
+            <button 
+                style={
+                    viewCategories ? {transform: 'translateX(0)'} : {}
+                }
+                className="goback-btn-hm" 
+                onClick={() => setViewCategories(false)}
+            >
+                <GoBackIcon className="goback-icon-hm" />
+            </button>
 
             {/* Close Button */}
-            <button className="close-btn" onClick={ () => closeHamburguerMenu() }>
+            <button className="close-btn" onClick={ () => {
+                closeHamburguerMenu();
+                setTimeout(() => setViewCategories(false), 500); 
+            }}>
                 <CloseIcon className="close-icon" />
             </button>
             
             {/* Links */}
-            <Link className="navbar-link nbl-hm" to='/' onClick={ () => closeHamburguerMenu() }> Home </Link>
-            <Link className="navbar-link nbl-hm" to='/#about-us' onClick={ () => closeHamburguerMenu() }> About Us </Link>
-            <Link className="navbar-link nbl-hm" to='/shop/all' onClick={ () => closeHamburguerMenu() }> Shop </Link>
+            <div className="main-links" style={
+                viewCategories ? {transform: 'translateX(-100vw)'} : {}
+            }>
+                <Link className="navbar-link nbl-hm" to='/' onClick={ () => closeHamburguerMenu() }> Home </Link>
+                <button className="navbar-link nbl-hm nbl-hm-cat" onClick={ () => setViewCategories(true) }> Categories </button>
+                <Link className="navbar-link nbl-hm" to='/shop/all' onClick={ () => closeHamburguerMenu() }> Shop </Link>
+            </div>
+
+            <div className="cat-links" style={
+                viewCategories ? {transform: 'translateX(0)'} : {opacity: '0'}
+            }>
+                <Link className="navbar-link nbl-hm" to='/shop/wagyu' onClick={() => {
+                    closeHamburguerMenu();
+                    setTimeout(() => setViewCategories(false), 500);
+                }}>Wagyu</Link>
+                <Link className="navbar-link nbl-hm" to='/shop/feedlot' onClick={() => {
+                    closeHamburguerMenu();
+                    setTimeout(() => setViewCategories(false), 500);
+                }}>Feedlot</Link>
+                <Link className="navbar-link nbl-hm" to='/shop/standard' onClick={() => {
+                    closeHamburguerMenu();
+                    setTimeout(() => setViewCategories(false), 500);
+                }}>Standard</Link>
+                <Link className="navbar-link nbl-hm" to='/shop/other' onClick={() => {
+                    closeHamburguerMenu();
+                    setTimeout(() => setViewCategories(false), 500);
+                }}>Others</Link>
+            </div>
         </div>    
     )
 }

@@ -9,6 +9,7 @@ import logoWhite from 'assets/img/logo/logo-white.png';
 import { ReactComponent as HamburguerIcon } from 'assets/icons/hamburguer-menu.svg';
 import { ReactComponent as LoginIcon } from 'assets/icons/login.svg';
 import { ReactComponent as UserIcon } from 'assets/icons/user.svg';
+import { ReactComponent as DropdownItemIcon } from 'assets/icons/arrow-right-circle.svg';
 // Components
 import { HamburguerMenuCanvas } from './components/HamburguerMenuCanvas/HamburguerMenuCanvas';
 import { LoginModal } from './components/loginModal/LoginModal';
@@ -27,6 +28,11 @@ export const NavBar = () => {
     const [hamburguerMenuOpen, sethamburguerMenuOpen] = useState<boolean>(false);
     const openHamburguerMenu = () => sethamburguerMenuOpen(true);
     const closeHamburguerMenu = () => sethamburguerMenuOpen(false);
+
+    // State that represents if the categories dropdown is open or not.
+    const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+    const openDropdown = () => setDropdownOpen(true);
+    const closeDropdown = () => setDropdownOpen(false);
 
     // Function openModal() from LSModalContext.
     const { openModal } = useContext(LSModalContext);
@@ -69,7 +75,40 @@ export const NavBar = () => {
                     {/* Navigation */}
                     <nav className="nc-right">
                         <Link className="navbar-link nbl-section" to='/'> Home </Link>
-                        <Link className="navbar-link nbl-section" to='/#about-us'> About Us </Link>
+
+                        <div onMouseEnter={() => openDropdown()}
+                            onMouseLeave={() => closeDropdown()}
+                        >
+                            <button className="navbar-link nbl-section nbl-cat">
+                                Categories
+                            </button>
+
+                            <div className="transparent-div" style={dropdownOpen ? {opacity: '1', pointerEvents: 'all'} : {}}></div>
+
+                            <div className="cat-dropdown-menu"
+                                style={dropdownOpen ? {opacity: '1', pointerEvents: 'all'} : {}}
+                            >
+                                <ul>
+                                    <li className="cdm-item" onClick={() => closeDropdown()}><Link to='/shop/wagyu' className="cdm-item-link">
+                                        <DropdownItemIcon className="dd-item-icon" />
+                                        Wagyu
+                                    </Link></li>
+                                    <li className="cdm-item" onClick={() => closeDropdown()}><Link to='/shop/feedlot' className="cdm-item-link">
+                                        <DropdownItemIcon className="dd-item-icon" />
+                                        Feedlot
+                                    </Link></li>
+                                    <li className="cdm-item" onClick={() => closeDropdown()}><Link to='/shop/standard' className="cdm-item-link">
+                                        <DropdownItemIcon className="dd-item-icon" />
+                                        Standard
+                                    </Link></li>
+                                    <li className="cdm-item" onClick={() => closeDropdown()}><Link to='/shop/other' className="cdm-item-link">
+                                        <DropdownItemIcon className="dd-item-icon" />
+                                        Others
+                                    </Link></li>
+                                </ul>
+                            </div>
+                        </div>
+
                         <Link className="navbar-link nbl-section" to='/shop/all'> Shop </Link>
 
                         {/* Hamburguer Menu */}

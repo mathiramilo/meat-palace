@@ -46,6 +46,75 @@
     margin-right: 2em;
 }
 
+.nbl-cat {
+    background-color: transparent;
+    border: none;
+    position: relative;
+    z-index: 1;
+}
+
+.transparent-div {
+    width: 151px;
+    height: 20px;
+    position: absolute;
+    display: none;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.cat-dropdown-menu {
+    position: absolute;
+    top: 42px;
+    background-color: #1E1E1E;
+    padding: 1.4em;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    border-radius: 2px;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease-out;
+    display: none;
+}
+
+.cat-dropdown-menu::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 0;
+    height: 0;
+    border-right: 12px solid transparent;
+    border-top: 20px solid transparent;
+    border-left: 12px solid transparent;
+    border-bottom: 20px solid #1E1E1E;
+    top: -28px;
+    left: 20px;
+}
+
+.cat-dropdown-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+}
+
+.cdm-item-link {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    text-transform: uppercase;
+    color: var(--white-50);
+    font-size: 0.92rem;
+    transition: all 0.3s ease-out;
+}
+
+.cdm-item-link:hover .dd-item-icon {
+    color: var(--red-100);
+}
+
+.dd-item-icon {
+    width: 16px;
+    color: #595959;
+    transition: all 0.3s ease-out;
+}
+
 .hamburguer-menu {
     background-color: transparent;
     border: none;
@@ -96,6 +165,14 @@
     }
 
     .nbl-section {
+        display: block;
+    }
+
+    .cat-dropdown-menu {
+        display: block;
+    }
+
+    .transparent-div {
         display: block;
     }
 }
