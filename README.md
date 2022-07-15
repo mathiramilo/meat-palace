@@ -7,6 +7,10 @@
 
 **Meat Palace** is an ecommerce created with React JS where you can buy meats of diferent types and qualities as well as other products for a barbacue.
 
+## **Navigation Flow**
+![Navigation Flow](/readme/design/navigation.gif)
+<span style='font-size: 10px; display: block'>Navigation Flow GIF</span>
+
 ## **Design**
 To obtain this great result, I designed each page and each element of this website in a complete and detailed way. To carry out this task I use **Figma**.
 
