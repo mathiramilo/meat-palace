@@ -29,7 +29,7 @@ export const Footer = () => {
                 {/* Footer Navigation */}
                 <nav className="footer-nav">
                     <Link className="footer-link navbar-link" to='/'> Home </Link>
-                    <Link className="footer-link navbar-link" to='/#about-us'> About Us </Link>
+                    <a className="footer-link navbar-link" href="https://github.com/mathiramilo/MeatPalace-Ramilo" target="_blank" rel="noreferrer"> Visit Project </a>
                     <Link className="footer-link navbar-link" to='/shop/all'> Shop </Link>
                 </nav>
 
