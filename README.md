@@ -41,27 +41,81 @@ Global Design
 
 * **`Authentication`** (Firebase Authentication aims to make it easier to build secure authentication systems while improving the onboarding and login experience for end users. Used to register and log users)
 
+```tsx
+/* Import the functions you need from the SDKs you need */
+import { initializeApp } from 'firebase/app'
+import { getAuth } from 'firebase/auth'
+
+/* Your web app's Firebase configuration */
+const firebaseConfig = {...}
+
+/* Initialize Firebase */
+const app = initializeApp(firebaseConfig)
+export const auth = getAuth(app)
+```
+
+```tsx
+/* Get Firestore Database and the collection */
+const db = getFirestore()
+const productsCollection = collection(db, 'products')
+
+if (limit) {
+  /* There is a limit, so we have to get only the 4 bestsellers products */
+  const q = query(
+      productsCollection,
+      where('category', '==', 'wagyu')
+  )
+
+  getDocs(q).then(snapshot => setProducts(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })).filter(({ name }: any) => name === 'Wagyu Tomahawk 1kg' || name === 'Wagyu Ribeye 1kg' || name === 'Wagyu Outside Skirt 1kg' || name === 'Wagyu Short Ribs 1kg') as Product[]))
+  .catch(err => setError(true))
+  .finally(() => setLoading(false))
+
+} else if (category === 'all') {
+  /* The URL Param category is 'all', so we have to get all products
+  except the ones with category 'other' and store them in the products state */
+  getDocs(productsCollection).then(snapshot => {
+    const allProducts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Product[]
+    const allMeats = allProducts.filter(prod => prod.category !== 'other')
+    setProducts(allMeats)
+  })
+  .catch(err => setError(true))
+  .finally(() => setLoading(false))
+
+} else {
+  /* The URL Param category is diferent from 'all', so we have to get
+  all products filtered by the indicated category and store them in the
+  products state */
+  const q2 = query(
+    productsCollection,
+    where('category', '==', category)
+  )
+  getDocs(q2).then(snapshot => setProducts(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Product[]))
+  .catch(err => setError(true))
+  .finally(() => setLoading(false))
+}
+```
+
 ## Libraries
 
 * **`React Router DOM`** (Used to implement dynamic routing. It allows you to display pages and allow users to navigate them)
 
 ```tsx
 /* Import the necessary components from React Router DOM */
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom'
 
 /* Component that has all the app routes configuration */
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/home' element={<Home />} />
-      <Route path='/shop/:category' element={<Shop />} />
-      <Route path='/shop' element={<Navigate to='/shop/all' />} />
-      <Route path='/product/:productID' element={<ProductDetailContainer />} />
-      {<Route path='/cart' element={<Cart />} />}
-      <Route path='/billing' element={<Billing />} />
+      <Route path="/" element={<Home />} />
+      <Route path="/home" element={<Home />} />
+      <Route path="/shop/:category" element={<Shop />} />
+      <Route path="/shop" element={<Navigate to="/shop/all" />} />
+      <Route path="/product/:productID" element={<ProductDetailContainer />} />
+      {<Route path="/cart" element={<Cart />} />}
+      <Route path="/billing" element={<Billing />} />
       {/* Any unknown path will be redirected to home page */}
-      <Route path='*' element={<Navigate to='/' />} />
+      <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   )
 }
