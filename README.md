@@ -46,8 +46,10 @@ Global Design
 * **`React Router DOM`** (Used to implement dynamic routing. It allows you to display pages and allow users to navigate them)
 
 ```tsx
+// Import the necessary components from React Router DOM
 import { Routes, Route, Navigate } from 'react-router-dom';
 
+// Component that has all the app routes configuration
 export const AppRoutes = () => {
   return (
     <Routes>
