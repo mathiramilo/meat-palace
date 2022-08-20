@@ -7,12 +7,12 @@
 
 # **Features**
 
-1. `Filter Products` (Users can filter the products by category in the shop section).
-2. `Quick Add` (Products can be easily added to the cart with this feature).
-3. `Product Detail` (Users can click on a product to see more informaton and choose an amount to add to the cart).
-4. `Cart Management` (In the cart, users can modify the amount of an added product or remove it).
-5. `Order Receipt` (When checkout is completed, the order receipt is displayed, it shows the buyer information, lists the ordered products and shows the total cost and id of the purchase).
-6. `Authentication` (Signup and Login, users must be logged in to checkout).
+1. ### `Filter Products` (Users can filter the products by category in the shop section).
+2. ### `Quick Add` (Products can be easily added to the cart with this feature).
+3. ### `Product Detail` (Users can click on a product to see more informaton and choose an amount to add to the cart).
+4. ### `Cart Management` (In the cart, users can modify the amount of an added product or remove it).
+5. ### `Order Receipt` (When checkout is completed, the order receipt is displayed, it shows the buyer information, lists the ordered products and shows the total cost and id of the purchase).
+6. ### `Authentication` (Signup and Login, users must be logged in to checkout).
 
 # **UI/UX Design**
 
