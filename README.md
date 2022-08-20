@@ -1,9 +1,5 @@
 <!-- MeatPalace Logo -->
-<div style='margin-bottom:2em;'>
-    <p style='text-align:center;'>
-        <img src="src/assets/img/logo/logo.png" alt="Logo MeatHouse" width="300px" style='margin: auto;'>
-    </p>
-</div>
+# ![Logo Meat Palace](/src/assets/img/logo/logo.png)
 
 **Meat Palace** is an ecommerce created with React JS where you can buy meats of diferent types and qualities as well as other products for a barbacue.
 
@@ -11,13 +7,12 @@
 
 ![Navigation Flow](/readme/design/navigation.gif)
 
-
 ## **Design**
 
 To obtain this great result, I designed each page and each element of this website in a complete and detailed way. To carry out this task I use **Figma**.
 
 ![Global Design](/readme/design/global-design.jpg)
-<span style='font-size: 10px'>Global Design</span>
+Global Design
 
 ## **Information**
 
@@ -38,13 +33,15 @@ Final Project of Coderhouse React JS Course
 
 * **React JS**
 
+### Firebase
+
+* **Firestore** (Cloud Firestore is a NoSQL document database that makes it easy to store, sync, and query data across your web and mobile apps. Used to store the **Products** and **Orders**)
+
+* **Authentication** (Firebase Authentication aims to make it easier to build secure authentication systems while improving the onboarding and login experience for end users. Used to register and log users)
+
 ### Libraries
 
 * **React Toastify** (Used to obtain a better communication with the user through the notification of certain actions, give information or alert errors)
-
-### Others
-
-* **Firebase** (Used for persistance and authentication)
 
 ## **Contact**
 
