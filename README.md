@@ -52,7 +52,7 @@ const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 ```
 
-```js
+```py
 /* Fetching data from firestore using queries */
 const db = getFirestore()
 const productsCollection = collection(db, 'products')
