@@ -41,29 +41,23 @@ Global Design
 
 * **`Authentication`** (Firebase Authentication aims to make it easier to build secure authentication systems while improving the onboarding and login experience for end users. Used to register and log users)
 
-`Firebase configuration and initialization`
-
 ```tsx
-/* Import the functions you need from the SDKs you need */
+/* Firebase configuration and initialization */
 import { initializeApp } from 'firebase/app'
 import { getAuth } from 'firebase/auth'
 
-/* Your web app's Firebase configuration */
 const firebaseConfig = {...}
 
-/* Initialize Firebase */
 const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 ```
-`Getting the data from Firestore`
 
 ```tsx
-/* Get Firestore Database and the collection */
+/* Fetching data from firestore using queries */
 const db = getFirestore()
 const productsCollection = collection(db, 'products')
 
 if (limit) {
-  /* There is a limit, so we have to get only the 4 bestsellers products */
   const q = query(
       productsCollection,
       where('category', '==', 'wagyu')
@@ -74,8 +68,6 @@ if (limit) {
   .finally(() => setLoading(false))
 
 } else if (category === 'all') {
-  /* The URL Param category is 'all', so we have to get all products
-  except the ones with category 'other' and store them in the products state */
   getDocs(productsCollection).then(snapshot => {
     const allProducts = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Product[]
     const allMeats = allProducts.filter(prod => prod.category !== 'other')
@@ -85,9 +77,6 @@ if (limit) {
   .finally(() => setLoading(false))
 
 } else {
-  /* The URL Param category is diferent from 'all', so we have to get
-  all products filtered by the indicated category and store them in the
-  products state */
   const q2 = query(
     productsCollection,
     where('category', '==', category)
@@ -95,6 +84,44 @@ if (limit) {
   getDocs(q2).then(snapshot => setProducts(snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })) as Product[]))
   .catch(err => setError(true))
   .finally(() => setLoading(false))
+}
+```
+
+```jsx
+/* Using Firebase Authentication to create an AuthContext */
+import { auth } from 'index'
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
+
+export const AuthContext = createContext<IAuthContext>({})
+
+type props = {
+  children: JSX.Element | JSX.Element[]
+}
+
+export function AuthContextProvider({ children }: props) {
+  const [user, setUser] = useState<any>(null)
+
+  const signup = (email: string, password: string) => createUserWithEmailAndPassword(auth, email, password)
+  const login = (email: string, password: string) => signInWithEmailAndPassword(auth, email, password)
+  const logout = () => signOut(auth)
+
+  useEffect(() => {
+    const unsuscribe = onAuthStateChanged(auth, currentUser => {
+      setUser(currentUser)
+    })
+
+    return () => unsuscribe()
+  }, [])
+
+  return <AuthContext.Provider value={{
+    user,
+    signup,
+    login,
+    logout,
+    setUserLS
+  }}>
+    { children }
+  </AuthContext.Provider>
 }
 ```
 
