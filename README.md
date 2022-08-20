@@ -1,18 +1,18 @@
 <!-- MeatPalace Logo -->
 ![Logo Meat Palace](/src/assets/img/logo/logo.png)
 
-**Meat Palace** is an ecommerce created with [**React JS**](https://reactjs.org/) where you can buy meats of diferent types and qualities as well as other products for an awesome barbacue.
+**Meat Palace** is an ecommerce created with [**React JS**](https://reactjs.org/) where you can buy meats of diferent types and qualities as well as other products for an amazing barbacue.
 
 ![Navigation Flow](/readme/design/navigation.gif)
 
 # **Features**
 
-#### 1. `Filter Products` (Users can filter the products by category in the shop section).
-#### 2. `Quick Add` (Products can be easily added to the cart with this feature).
-#### 3. `Product Detail` (Users can click on a product to see more informaton and choose an amount to add to the cart).
-#### 4. `Cart Management` (In the cart, users can modify the amount of an added product or remove it).
-#### 5. `Order Receipt` (When checkout is completed, the order receipt is displayed, it shows the buyer information, lists the ordered products and shows the total cost and id of the purchase).
-#### 6. `Authentication` (Signup and Login, users must be logged in to checkout).
+1. **`Filter Products`** (Users can filter the products by category in the shop section).
+2. **`Quick Add`** (Products can be easily added to the cart with this feature).
+3. **`Product Detail`** (Users can click on a product to see more informaton and choose an amount to add to the cart).
+4. **`Cart Management`** (In the cart, users can modify the amount of an added product or remove it).
+5. **`Order Receipt`** (When checkout is completed, the order receipt is displayed, it shows the buyer information, lists the ordered products and shows the total cost and id of the purchase).
+6. **`Authentication`** (Signup and Login, users must be logged in to checkout).
 
 # **UI/UX Design**
 
@@ -23,12 +23,14 @@ To obtain this **great result**, I designed each page and each element of this w
 ![Global Design](/readme/design/global-design.jpg)
 Global Design
 
-# **General Information**
+# Technical Information
 
-Final Project of Coderhouse React JS Course
+# General Information
 
-* **Developed by: Mathias Ramilo**
-* **Website: https://meatpalace-ramilo.web.app/**
+Final Project of Coderhouse React JS Course.
+
+* **Developed by:** Mathias Ramilo
+* **Website:** https://meatpalace-ramilo.web.app
 
 ## **Tools**
 
