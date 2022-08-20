@@ -25,7 +25,7 @@ Global Design
 
 # Technical Information
 
-## Frameworks
+## Framework
 
 * **`React JS`** (Free and open-source frontend JavaScript library for building user interfaces based on UI components. React can be used as a base in the development of single-page, mobile, or server-rendered applications)
 
