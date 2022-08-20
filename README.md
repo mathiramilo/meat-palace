@@ -52,7 +52,7 @@ const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 ```
 
-```tsx
+```js
 /* Fetching data from firestore using queries */
 const db = getFirestore()
 const productsCollection = collection(db, 'products')
@@ -87,7 +87,7 @@ if (limit) {
 }
 ```
 
-```jsx
+```js
 /* Using Firebase Authentication to create an AuthContext */
 import { auth } from 'index'
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut } from 'firebase/auth'
