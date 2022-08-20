@@ -41,6 +41,8 @@ Global Design
 
 * **`Authentication`** (Firebase Authentication aims to make it easier to build secure authentication systems while improving the onboarding and login experience for end users. Used to register and log users)
 
+`Firebase configuration and initialization`
+
 ```tsx
 /* Import the functions you need from the SDKs you need */
 import { initializeApp } from 'firebase/app'
@@ -53,6 +55,7 @@ const firebaseConfig = {...}
 const app = initializeApp(firebaseConfig)
 export const auth = getAuth(app)
 ```
+`Getting the data from Firestore`
 
 ```tsx
 /* Get Firestore Database and the collection */
