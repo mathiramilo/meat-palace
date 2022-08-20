@@ -25,25 +25,46 @@ Global Design
 
 # Technical Information
 
-### Frameworks
+## Frameworks
 
 * **`React JS`** (Free and open-source frontend JavaScript library for building user interfaces based on UI components. React can be used as a base in the development of single-page, mobile, or server-rendered applications)
 
-### Languages
+## Languages
 
 * **`Typescript`** (Strongly typed programming language that builds on JavaScript, giving you better tooling at any scale)
 * **`CSS3`** (Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML or XML)
 * **`JSX-TSX`** (JavaScript extension that allows us to describe React's object tree using a syntax that resembles that of an HTML template)
 
-### Firebase
+## Firebase
 
 * **`Firestore`** (Cloud Firestore is a NoSQL document database that makes it easy to store, sync, and query data across your web and mobile apps. Used to store the **Products** and **Orders**)
 
 * **`Authentication`** (Firebase Authentication aims to make it easier to build secure authentication systems while improving the onboarding and login experience for end users. Used to register and log users)
 
-### Libraries
+## Libraries
 
 * **`React Router DOM`** (Used to implement dynamic routing. It allows you to display pages and allow users to navigate them)
+
+```tsx
+import { Routes, Route, Navigate } from 'react-router-dom';
+
+export const AppRoutes = () => {
+  return (
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/home' element={<Home />} />
+      <Route path='/shop/:category' element={<Shop />} />
+      <Route path='/shop' element={<Navigate to='/shop/all' />} />
+      <Route path='/product/:productID' element={<ProductDetailContainer />} />
+      {<Route path='/cart' element={<Cart />} />}
+      <Route path='/billing' element={<Billing />} />
+      {/* Any unknown path will be redirected to home page */}
+      <Route path='*' element={<Navigate to='/' />} />
+    </Routes>
+  )
+}
+```
+
 * **`React Toastify`** (Used to obtain a better communication with the user through the notification of certain actions, give information or alert errors)
 
 # General Information

@@ -48,10 +48,12 @@ export const CartContextProvider = ({ children }: props) => {
     represents the products in the cart. */
     const [products, setProducts] = useState<Product[]>([]);
 
-    /* This state is true if the user selects an express
-    shipping or false for a standard shipping.  */
+    /* This state is true if the user selects express
+    shipping or false for standard shipping. */
     const [expressShipping, setExpressShipping] = useState(false);
 
+    /* This state is true if the user selects card
+    payment or false for on delivery payment. */
     const [cardPayment, setCardPayment] = useState(false);
 
     /* This function adds an amount of a product to the cart. */
