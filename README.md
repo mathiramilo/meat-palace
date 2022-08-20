@@ -33,7 +33,7 @@ Global Design
 
 * **`Typescript`** (Strongly typed programming language that builds on JavaScript, giving you better tooling at any scale)
 * **`CSS3`** (Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML or XML)
-* **`JSX`** (JavaScript extension that allows us to describe React's object tree using a syntax that resembles that of an HTML template)
+* **`JSX-TSX`** (JavaScript extension that allows us to describe React's object tree using a syntax that resembles that of an HTML template)
 
 ## Firebase
 
@@ -53,7 +53,7 @@ Final Project of Coderhouse React JS Course.
 * Developed by **Mathias Ramilo**.
 * Visit the [**Website**](https://meatpalace-ramilo.web.app) and see it for yourself.
 
-## **Personal Data**
+### **Personal Data**
 
 * Visit my [**GitHub**](https://github.com/mathiramilo) profile to see more amazing proyects.
 * If you are interested, contact me on [**Linkedin**](https://www.linkedin.com/in/mathias-ramilo/).
