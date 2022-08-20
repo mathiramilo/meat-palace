@@ -162,7 +162,7 @@ Final Project of Coderhouse React JS Course.
 
 ### **Personal Data**
 
-* Visit my [**GitHub**](https://github.com/mathiramilo) profile to see more amazing proyects.
+* Visit my [**GitHub**](https://github.com/mathiramilo) profile to see more amazing projects.
 * If you are interested, contact me on [**Linkedin**](https://www.linkedin.com/in/mathias-ramilo/).
   
 # Instructions
