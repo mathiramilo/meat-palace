@@ -7,12 +7,12 @@
 
 # **Features**
 
-1. **`Filter Products`** (Users can filter the products by category in the shop section).
-2. **`Quick Add`** (Products can be easily added to the cart with this feature).
-3. **`Product Detail`** (Users can click on a product to see more informaton and choose an amount to add to the cart).
-4. **`Cart Management`** (In the cart, users can modify the amount of an added product or remove it).
-5. **`Order Receipt`** (When checkout is completed, the order receipt is displayed, it shows the buyer information, lists the ordered products and shows the total cost and id of the purchase).
-6. **`Authentication`** (Signup and Login, users must be logged in to checkout).
+1. **`Filter Products`** (Users can filter the products by category in the shop section)
+2. **`Quick Add`** (Products can be easily added to the cart with this feature)
+3. **`Product Detail`** (Users can click on a product to see more informaton and choose an amount to add to the cart)
+4. **`Cart Management`** (In the cart, users can modify the amount of an added product or remove it)
+5. **`Order Receipt`** (When checkout is completed, the order receipt is displayed, it shows the buyer information, lists the ordered products and shows the total cost and id of the purchase)
+6. **`Authentication`** (Signup and Login, users must be logged in to checkout)
 
 # **UI/UX Design**
 
@@ -25,39 +25,38 @@ Global Design
 
 # Technical Information
 
+## Frameworks
+
+* **`React JS`**
+
+## Languages
+
+* **`Typescript`** (Strongly typed programming language that builds on JavaScript, giving you better tooling at any scale)
+* **`CSS3`** (Cascading Style Sheets (CSS) is a style sheet language used for describing the presentation of a document written in a markup language such as HTML or XML)
+* **`JSX`** (JavaScript extension that allows us to describe React's object tree using a syntax that resembles that of an HTML template)
+
+## Firebase
+
+* **`Firestore`** (Cloud Firestore is a NoSQL document database that makes it easy to store, sync, and query data across your web and mobile apps. Used to store the **Products** and **Orders**)
+
+* **`Authentication`** (Firebase Authentication aims to make it easier to build secure authentication systems while improving the onboarding and login experience for end users. Used to register and log users)
+
+## Libraries
+
+* **`React Router DOM`** (Used to implement dynamic routing. It allows you to display pages and allow users to navigate them)
+* **`React Toastify`** (Used to obtain a better communication with the user through the notification of certain actions, give information or alert errors)
+
 # General Information
 
 Final Project of Coderhouse React JS Course.
 
-* **Developed by:** Mathias Ramilo
-* **Website:** https://meatpalace-ramilo.web.app
+* Developed by **Mathias Ramilo**.
+* Visit the [**Website**](https://meatpalace-ramilo.web.app) and see it for yourself.
 
-## **Tools**
+## **Personal Data**
 
-### Languages
-
-* **Typescript**
-* **CSS3**
-* **HTML5**
-
-### Frameworks
-
-* **React JS**
-
-### Firebase
-
-* **Firestore** (Cloud Firestore is a NoSQL document database that makes it easy to store, sync, and query data across your web and mobile apps. Used to store the **Products** and **Orders**)
-
-* **Authentication** (Firebase Authentication aims to make it easier to build secure authentication systems while improving the onboarding and login experience for end users. Used to register and log users)
-
-### Libraries
-
-* **React Toastify** (Used to obtain a better communication with the user through the notification of certain actions, give information or alert errors)
-
-## **Contact**
-
-* [**GitHub**](https://github.com/mathiramilo)
-* [**Linkedin**](https://www.linkedin.com/in/mathias-ramilo/)
+* Visit my [**GitHub**](https://github.com/mathiramilo) profile to see more amazing proyects.
+* If you are interested, contact me on [**Linkedin**](https://www.linkedin.com/in/mathias-ramilo/).
   
 # Instructions
 
