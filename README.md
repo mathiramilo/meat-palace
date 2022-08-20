@@ -8,53 +8,46 @@
 **Meat Palace** is an ecommerce created with React JS where you can buy meats of diferent types and qualities as well as other products for a barbacue.
 
 ## **Navigation Flow**
+
 ![Navigation Flow](/readme/design/navigation.gif)
 
 
 ## **Design**
+
 To obtain this great result, I designed each page and each element of this website in a complete and detailed way. To carry out this task I use **Figma**.
 
 ![Global Design](/readme/design/global-design.jpg)
 <span style='font-size: 10px'>Global Design</span>
 
-### **Home**
-![Home Design](/readme/design/home.png)
-
-### **Shop**
-![Shop Design](/readme/design/shop.png)
-
-### **Product Detail**
-![Product Detail Design](/readme/design/product-detail.png)
-
-### **Cart**
-![Cart Design](/readme/design/cart.png)
-
-### **Finish Buying**
-![Billing Design](/readme/design/billing.png)
-
-### **Login/Signup Modals**
-![Login/Signup Design](/readme/design/login-signup.png)
-
 ## **Information**
+
 Final Project of Coderhouse React JS Course
+
 * **Developed by: Mathias Ramilo**
-* **Website: https://meatpalace-ramilo.web.app/** 
+* **Website: https://meatpalace-ramilo.web.app/**
 
 ## **Tools**
+
 ### Languages
+
 * **Typescript**
 * **CSS3**
 * **HTML5**
 
 ### Frameworks
+
 * **React JS**
+
 ### Libraries
+
 * **React Toastify** (Used to obtain a better communication with the user through the notification of certain actions, give information or alert errors)
 
 ### Others
+
 * **Firebase** (Used for persistance and authentication)
 
 ## **Contact**
+
 * [**GitHub**](https://github.com/mathiramilo)
 * [**Linkedin**](https://www.linkedin.com/in/mathias-ramilo/)
   
