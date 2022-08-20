@@ -16,7 +16,7 @@
 
 # **UI/UX Design**
 
-## `Full responsive and clean design`
+### `Full responsive and clean design`
 
 To obtain this **great result**, I designed each page and each element of this website in a complete and detailed way. To carry out this task I use [**Figma**](https://www.figma.com/).
 
