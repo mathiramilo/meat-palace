@@ -33,6 +33,58 @@ The main advantage of React is being able to generate the DOM dynamically. This 
 
 Web Applications developed with React are based on reusable components. This makes the application more scalable and easier to maintain since errors will happen in the component's own functionality or in the communication with the others.
 
+```tsx
+/* Item component */
+import { useContext } from 'react'
+import { Link } from 'react-router-dom'
+import { ReactComponent as AddToCartIcon } from 'assets/icons/add-cart.svg'
+import { ReactComponent as InfoIcon } from 'assets/icons/info.svg'
+import { Product } from 'interfaces/product'
+import { CartContext } from 'contexts/CartContext'
+import './Item.css'
+
+type props = {
+  product: Product
+}
+
+export const Item = ({ product }: props) => {
+  const { id, name, price, category, img } = product
+
+  const { quickAdd } = useContext(CartContext)
+
+  const handleQuickAdd = (product: Product, evt: any) => {
+    evt.preventDefault()
+    quickAdd(product)
+  }
+
+  return (
+    <Link to={`/product/${id}`}>
+      <div className="item-card">
+        <div className="ic-img">
+          <img src={`/assets/products/${category}/${img}`} alt={name} />
+
+          <div className="ic-overlay">
+            <button 
+              onClick={(evt) => handleQuickAdd(product, evt)} 
+              className="quick-add-btn"
+            >
+              <AddToCartIcon className="quick-add-icon" />
+            </button>
+            <button className="product-detail-btn">
+              <InfoIcon className="info-icon" />
+            </button>
+          </div>
+        </div>
+        <div className="ic-name-price">
+          <h4> {name} </h4>
+          <span> US$ {price.toFixed(2)} </span>
+        </div>
+      </div>
+    </Link>
+  )
+}
+```
+
 ### `3. Global State Management`
 
 Thanks to [**React Context API**](https://reactjs.org/docs/context.html) we can effectively produce global variables that can be passed around. This is the alternative to "prop drilling" or moving props from grandparent to child to parent, and so on.
