@@ -3,7 +3,7 @@
 
 **Meat Palace** is an ecommerce created with [**React JS**](https://reactjs.org/) where you can buy meats of diferent types and qualities as well as other products for an amazing barbacue.
 
-![Navigation Flow](/readme/design/navigation.gif)
+![Navigation Flow](/readme/navigation.gif)
 
 # **Features**
 
@@ -20,7 +20,7 @@
 
 To obtain this **great result**, I designed each page and each element of this website in a complete and detailed way. To carry out this task I use [**Figma**](https://www.figma.com/).
 
-![Global Design](/readme/design/global-design.jpg)
+![Global Design](/readme/global-design.jpg)
 Global Design
 
 # Technical Information
