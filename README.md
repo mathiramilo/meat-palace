@@ -1,8 +1,6 @@
 <!-- MeatPalace Logo -->
 ![Logo Meat Palace](/src/assets/img/logo/logo.png)
 
-##
-
 **Meat Palace** is an **E-commerce Web App** developed with [**React JS**](https://reactjs.org/) where you can buy meats of diferent types and qualities as well as other products for an amazing barbacue. You can visit the [**Website**](https://meatpalace-ramilo.web.app) and see it for yourself.
 
 ![Navigation Flow](/readme/navigation.gif)
