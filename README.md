@@ -25,6 +25,14 @@ Global Design
 
 # Technical Information
 
+### `1. Fast and Performant Web App`
+
+The main advantage of React is being able to generate the DOM dynamically. This means that in order to display data changes, it is not necessary to render the entire page again, but only the component that has been updated. Thanks to this feature, it improves: the user experience when browsing the web application, the speed in loading the pages and facilitates the maintenance of the application.
+
+### `2. Component based Architecture`
+
+Web Applications developed with React are based on reusable components. This makes the application more scalable and easier to maintain since errors will happen in the component's own functionality or in the communication with the others.
+
 ## Framework
 
 * **`React JS`** (Free and open-source frontend JavaScript library for building user interfaces based on UI components. React can be used as a base in the development of single-page, mobile, or server-rendered applications)
